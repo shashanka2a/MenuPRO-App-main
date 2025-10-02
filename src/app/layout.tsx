@@ -48,9 +48,15 @@ export const metadata: Metadata = {
     maximumScale: 1,
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo-icon.svg', sizes: 'any', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.svg',
+    apple: [
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' }
+    ],
   },
 }
 
