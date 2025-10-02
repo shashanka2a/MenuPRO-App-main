@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
@@ -68,7 +68,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
     }
   };
 
-  const generateTables = async () => {
+  const generateTables = useCallback(async () => {
     setIsGenerating(true);
     const newTables: TableQR[] = [];
 
@@ -88,7 +88,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
 
     setTables(newTables);
     setIsGenerating(false);
-  };
+  }, [numberOfTables, restaurantId]);
 
   const toggleTableSelection = (tableId: string) => {
     setSelectedTables(prev => 
@@ -250,7 +250,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
     if (numberOfTables > 0) {
       generateTables();
     }
-  }, [numberOfTables, restaurantId]);
+  }, [numberOfTables, restaurantId, generateTables]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-orange-50 to-red-50">
