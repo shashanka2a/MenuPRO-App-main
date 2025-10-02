@@ -1,20 +1,5 @@
 # MenuPRO - Digital Menu and Ordering System
 
-<cite>
-**Referenced Files in This Document**
-- [README.md](file://README.md)
-- [package.json](file://package.json)
-- [src/app/layout.tsx](file://src/app/layout.tsx)
-- [src/components/pwa-app.tsx](file://src/components/pwa-app.tsx)
-- [src/components/restaurant/restaurant-app.tsx](file://src/components/restaurant/restaurant-app.tsx)
-- [src/app/api/auth/send-verification/route.ts](file://src/app/api/auth/send-verification/route.ts)
-- [src/app/api/auth/verify-otp/route.ts](file://src/app/api/auth/verify-otp/route.ts)
-- [src/app/api/restaurant/generate-qr/route.ts](file://src/app/api/restaurant/generate-qr/route.ts)
-- [src/app/api/restaurant/parse-menu/route.ts](file://src/app/api/restaurant/parse-menu/route.ts)
-- [src/components/ui/button.tsx](file://src/components/ui/button.tsx)
-- [src/components/hero.tsx](file://src/components/hero.tsx)
-- [src/components/how-it-works.tsx](file://src/components/how-it-works.tsx)
-</cite>
 
 ## Table of Contents
 1. [Introduction](#introduction)
