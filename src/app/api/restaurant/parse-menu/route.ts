@@ -1,151 +1,183 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createWorker } from 'tesseract.js';
+import { getPrismaFromRequest } from '@/lib/prisma-tenant';
+import { withAuth } from '@/lib/supabase-auth';
+import { setupAuditLogging } from '@/lib/audit-middleware';
+import MenuParserService, { MenuParsingResult } from '@/lib/menu-parser';
 
-export async function POST(request: NextRequest) {
-  try {
-    const formData = await request.formData();
-    const file = formData.get('file') as File;
-    const method = formData.get('method') as string;
-
-    if (!file) {
-      return NextResponse.json(
-        { message: 'No file provided' },
-        { status: 400 }
-      );
-    }
-
-    let extractedText = '';
-    let items: any[] = [];
-
-    if (method === 'pdf') {
-      // Parse PDF
-      const buffer = await file.arrayBuffer();
-      const pdfParse = (await import('pdf-parse')).default;
-      const pdfData = await pdfParse(Buffer.from(buffer));
-      extractedText = pdfData.text;
-    } else if (method === 'physical') {
-      // OCR for images
-      const worker = await createWorker('eng');
-      
-      const buffer = await file.arrayBuffer();
-      const { data: { text } } = await worker.recognize(Buffer.from(buffer));
-      extractedText = text;
-      
-      await worker.terminate();
-    }
-
-    // Parse menu items from extracted text
-    items = parseMenuItems(extractedText);
-
-    return NextResponse.json({
-      success: true,
-      items,
-      extractedText: extractedText.substring(0, 500) + '...' // Truncate for response
-    });
-
-  } catch (error) {
-    console.error('Menu parsing error:', error);
-    return NextResponse.json(
-      { message: 'Failed to parse menu' },
-      { status: 500 }
-    );
-  }
+export interface ParseMenuRequest {
+  versionName: string;
+  makeActive?: boolean;
 }
 
-function parseMenuItems(text: string) {
-  const items: any[] = [];
-  const lines = text.split('\n').filter(line => line.trim().length > 0);
-  
-  // Common price patterns
-  const pricePatterns = [
-    /\$(\d+\.?\d*)/g,
-    /(\d+\.?\d*)\s*dollars?/gi,
-    /(\d+\.?\d*)\s*USD/gi
-  ];
+export interface ParseMenuResponse {
+  success: boolean;
+  result?: MenuParsingResult;
+  error?: string;
+}
 
-  // Common food categories
-  const categories = [
-    'appetizers', 'starters', 'soups', 'salads',
-    'mains', 'entrees', 'pasta', 'pizza', 'burgers',
-    'desserts', 'beverages', 'drinks', 'wine', 'beer'
-  ];
+export async function POST(req: NextRequest): Promise<NextResponse<ParseMenuResponse>> {
+  return withAuth(req, async (request, user, tenantContext) => {
+    try {
+      // Check permissions
+      const hasManagerPermission = user.memberships.some(m => 
+        m.restaurantId === tenantContext.restaurantId && 
+        ['MANAGER', 'ADMIN', 'OWNER'].includes(m.role)
+      );
 
-  let currentCategory = 'Main Course';
-  
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    
-    // Check if line is a category
-    const categoryMatch = categories.find(cat => 
-      line.toLowerCase().includes(cat.toLowerCase())
-    );
-    
-    if (categoryMatch) {
-      currentCategory = line;
-      continue;
-    }
-    
-    // Look for price in the line
-    let price = 0;
-    let priceMatch = null;
-    
-    for (const pattern of pricePatterns) {
-      priceMatch = pattern.exec(line);
-      if (priceMatch) {
-        price = parseFloat(priceMatch[1]);
-        break;
+      if (!hasManagerPermission) {
+        return NextResponse.json({
+          success: false,
+          error: 'Insufficient permissions to parse menu'
+        }, { status: 403 });
       }
-    }
-    
-    if (price > 0) {
-      // Extract item name (everything before the price)
-      const priceIndex = line.search(/\$?\d+\.?\d*/);
-      const itemName = priceIndex > 0 ? line.substring(0, priceIndex).trim() : line;
-      
-      // Skip if item name is too short or contains only numbers
-      if (itemName.length < 3 || /^\d+$/.test(itemName)) {
-        continue;
+
+      const formData = await request.formData();
+      const file = formData.get('file') as File;
+      const versionName = formData.get('versionName') as string;
+      const makeActive = formData.get('makeActive') === 'true';
+
+      if (!file) {
+        return NextResponse.json({
+          success: false,
+          error: 'No file provided'
+        }, { status: 400 });
       }
-      
-      // Look for description in next line
-      let description = '';
-      if (i + 1 < lines.length) {
-        const nextLine = lines[i + 1].trim();
-        // If next line doesn't contain a price, it might be a description
-        if (!nextLine.match(/\$?\d+\.?\d*/) && nextLine.length > 0 && nextLine.length < 100) {
-          description = nextLine;
+
+      if (!versionName) {
+        return NextResponse.json({
+          success: false,
+          error: 'Version name is required'
+        }, { status: 400 });
+      }
+
+      // Validate file type
+      const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/gif'];
+      if (!allowedTypes.includes(file.type)) {
+        return NextResponse.json({
+          success: false,
+          error: 'File type not supported. Please upload PDF, JPEG, PNG, or GIF files.'
+        }, { status: 400 });
+      }
+
+      // Validate file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        return NextResponse.json({
+          success: false,
+          error: 'File size too large. Maximum 10MB allowed.'
+        }, { status: 400 });
+      }
+
+      const prisma = getPrismaFromRequest(request);
+      setupAuditLogging(prisma, request, tenantContext);
+
+      // Initialize menu parser
+      const parserConfig = {
+        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        supabaseKey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+        openaiApiKey: process.env.OPENAI_API_KEY,
+        storage: {
+          bucket: 'menu-uploads',
+          path: 'menus'
         }
+      };
+
+      const menuParser = new MenuParserService(parserConfig, prisma);
+
+      // Parse the menu
+      const result = await menuParser.parseMenuFromFile(
+        file,
+        tenantContext.restaurantId!,
+        versionName,
+        user.id
+      );
+
+      if (!result.success) {
+        return NextResponse.json({
+          success: false,
+          error: result.error
+        }, { status: 500 });
       }
-      
-      // Calculate confidence based on various factors
-      let confidence = 0.5; // Base confidence
-      
-      if (itemName.length > 5) confidence += 0.1;
-      if (price > 5 && price < 100) confidence += 0.2;
-      if (description.length > 0) confidence += 0.1;
-      if (itemName.toLowerCase().includes('pizza') || 
-          itemName.toLowerCase().includes('pasta') ||
-          itemName.toLowerCase().includes('salad') ||
-          itemName.toLowerCase().includes('burger')) {
-        confidence += 0.2;
+
+      // If makeActive is true, set this version as active
+      if (makeActive && result.versionId) {
+        await prisma.$transaction(async (tx: any) => {
+          // Deactivate current active version
+          await tx.menuVersion.updateMany({
+            where: {
+              restaurantId: tenantContext.restaurantId,
+              isActive: true
+            },
+            data: {
+              isActive: false
+            }
+          });
+
+          // Activate new version
+          await tx.menuVersion.update({
+            where: { id: result.versionId },
+            data: {
+              isActive: true,
+              isPublished: true,
+              publishedAt: new Date()
+            }
+          });
+        });
       }
-      
-      confidence = Math.min(confidence, 0.95); // Cap at 95%
-      
-      items.push({
-        name: itemName,
-        price: price,
-        description: description,
-        category: currentCategory,
-        confidence: confidence
+
+      return NextResponse.json({
+        success: true,
+        result
       });
+
+    } catch (error: any) {
+      console.error('Menu parsing error:', error);
+      
+      return NextResponse.json({
+        success: false,
+        error: error.message || 'Failed to parse menu'
+      }, { status: 500 });
     }
-  }
-  
-  // Remove duplicates and sort by confidence
-  const uniqueItems = items.filter((item, index, self) => 
-    index === self.findIndex(t => t.name.toLowerCase() === item.name.toLowerCase())
-  );
-  
-  return uniqueItems.sort((a, b) => b.confidence - a.confidence);
+  });
+}
+
+export async function GET(req: NextRequest): Promise<NextResponse> {
+  return withAuth(req, async (request, user, tenantContext) => {
+    try {
+      const { searchParams } = new URL(request.url);
+      const versionId = searchParams.get('versionId');
+
+      if (!versionId) {
+        return NextResponse.json({
+          success: false,
+          error: 'Version ID is required'
+        }, { status: 400 });
+      }
+
+      const prisma = getPrismaFromRequest(request);
+      const parserConfig = {
+        supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        supabaseKey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+        storage: {
+          bucket: 'menu-uploads',
+          path: 'menus'
+        }
+      };
+
+      const menuParser = new MenuParserService(parserConfig, prisma);
+      const status = await menuParser.getParsingStatus(versionId);
+
+      return NextResponse.json({
+        success: true,
+        status
+      });
+
+    } catch (error: any) {
+      console.error('Get parsing status error:', error);
+      
+      return NextResponse.json({
+        success: false,
+        error: error.message || 'Failed to get parsing status'
+      }, { status: 500 });
+    }
+  });
 }

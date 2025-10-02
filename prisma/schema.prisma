@@ -1,0 +1,346 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Enable Row Level Security
+generator custom {
+  provider = "prisma-generator-rls"
+}
+
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  phone           String?  @unique
+  firstName       String?
+  lastName        String?
+  avatar          String?
+  emailVerified   Boolean  @default(false)
+  phoneVerified   Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  lastLogin       DateTime?
+  preferredLang   String   @default("en")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relationships
+  memberships     Membership[]
+  orders          Order[]
+  auditLogs       AuditLog[]
+
+  @@map("users")
+}
+
+model Restaurant {
+  id              String   @id @default(cuid())
+  name            String
+  slug            String   @unique
+  description     String?
+  address         String?
+  phone           String?
+  email           String?
+  website         String?
+  logo            String?
+  coverImage      String?
+  timezone        String   @default("UTC")
+  currency        String   @default("USD")
+  isActive        Boolean  @default(true)
+  settings        Json?    // Restaurant-specific settings
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relationships
+  memberships     Membership[]
+  tables          Table[]
+  menuVersions    MenuVersion[]
+  menuItems       MenuItem[]
+  orders          Order[]
+  auditLogs       AuditLog[]
+
+  @@map("restaurants")
+}
+
+enum MembershipRole {
+  OWNER
+  ADMIN
+  MANAGER
+  STAFF
+  CUSTOMER
+}
+
+model Membership {
+  id            String         @id @default(cuid())
+  userId        String
+  restaurantId  String
+  role          MembershipRole
+  permissions   Json?          // Custom permissions override
+  isActive      Boolean        @default(true)
+  joinedAt      DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  // Relationships
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  restaurant    Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, restaurantId])
+  @@map("memberships")
+}
+
+model Table {
+  id            String     @id @default(cuid())
+  restaurantId  String
+  number        String     // Table number/identifier
+  name          String?    // Optional table name
+  capacity      Int        @default(4)
+  location      String?    // Table location description
+  qrCode        String?    // QR code identifier
+  qrCodeUrl     String?    // URL to QR code image
+  isActive      Boolean    @default(true)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  // Relationships
+  restaurant    Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  orders        Order[]
+
+  @@unique([restaurantId, number])
+  @@map("tables")
+}
+
+model MenuVersion {
+  id            String     @id @default(cuid())
+  restaurantId  String
+  version       Int        @default(1) // For optimistic concurrency
+  name          String     // Version name/description
+  isActive      Boolean    @default(false)
+  isPublished   Boolean    @default(false)
+  publishedAt   DateTime?
+  validFrom     DateTime?
+  validUntil    DateTime?
+  sourceFile    String?    // Original uploaded file URL
+  parseStatus   String?    // PENDING, PROCESSING, COMPLETED, FAILED
+  parseMetadata Json?      // OCR and parsing metadata
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  // Relationships
+  restaurant    Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  menuItems     MenuItem[]
+
+  @@map("menu_versions")
+}
+
+enum MenuItemStatus {
+  AVAILABLE
+  UNAVAILABLE
+  OUT_OF_STOCK
+}
+
+model MenuItem {
+  id              String         @id @default(cuid())
+  restaurantId    String
+  menuVersionId   String
+  name            String
+  description     String?
+  category        String?        // e.g., "Appetizers", "Main Course"
+  price           Decimal        @db.Decimal(10, 2)
+  currency        String         @default("USD")
+  image           String?
+  allergens       String[]       // Array of allergen identifiers
+  nutritionInfo   Json?          // Nutrition information
+  preparationTime Int?           // In minutes
+  status          MenuItemStatus @default(AVAILABLE)
+  isVegan         Boolean        @default(false)
+  isVegetarian    Boolean        @default(false)
+  isGlutenFree    Boolean        @default(false)
+  sortOrder       Int            @default(0)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  // Relationships
+  restaurant      Restaurant     @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  menuVersion     MenuVersion    @relation(fields: [menuVersionId], references: [id], onDelete: Cascade)
+  orderItems      OrderItem[]
+
+  @@map("menu_items")
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  READY
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+model Order {
+  id              String        @id @default(cuid())
+  restaurantId    String
+  userId          String?       // Optional for guest orders
+  tableId         String?
+  orderNumber     String        @unique // Human-readable order number
+  version         Int           @default(1) // For optimistic concurrency
+  status          OrderStatus   @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  subtotal        Decimal       @db.Decimal(10, 2)
+  tax             Decimal       @db.Decimal(10, 2)
+  tip             Decimal       @db.Decimal(10, 2) @default(0)
+  total           Decimal       @db.Decimal(10, 2)
+  currency        String        @default("USD")
+  customerName    String?
+  customerPhone   String?
+  customerEmail   String?
+  specialRequests String?
+  estimatedTime   Int?          // In minutes
+  requestId       String?       @unique // For idempotency
+  metadata        Json?         // Additional order metadata
+  placedAt        DateTime      @default(now())
+  confirmedAt     DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  // Relationships
+  restaurant      Restaurant    @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  user            User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  table           Table?        @relation(fields: [tableId], references: [id], onDelete: SetNull)
+  orderItems      OrderItem[]
+  auditLogs       AuditLog[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id              String     @id @default(cuid())
+  orderId         String
+  menuItemId      String
+  quantity        Int        @default(1)
+  unitPrice       Decimal    @db.Decimal(10, 2)
+  totalPrice      Decimal    @db.Decimal(10, 2)
+  specialRequests String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  // Relationships
+  order           Order      @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItem        MenuItem   @relation(fields: [menuItemId], references: [id], onDelete: Restrict)
+
+  @@map("order_items")
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  EXPORT
+  IMPORT
+}
+
+model AuditLog {
+  id            String      @id @default(cuid())
+  userId        String?
+  restaurantId  String?
+  orderId       String?
+  action        AuditAction
+  tableName     String
+  recordId      String?
+  beforeState   Json?       // State before change
+  afterState    Json?       // State after change
+  ipAddress     String?
+  userAgent     String?
+  metadata      Json?       // Additional context
+  createdAt     DateTime    @default(now())
+
+  // Relationships
+  user          User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  restaurant    Restaurant? @relation(fields: [restaurantId], references: [id], onDelete: SetNull)
+  order         Order?      @relation(fields: [orderId], references: [id], onDelete: SetNull)
+
+  @@map("audit_logs")
+}
+
+// Indexes for performance optimization
+model User {
+  @@index([email])
+  @@index([phone])
+  @@index([createdAt])
+}
+
+model Restaurant {
+  @@index([slug])
+  @@index([isActive])
+  @@index([createdAt])
+}
+
+model Membership {
+  @@index([userId])
+  @@index([restaurantId])
+  @@index([role])
+  @@index([isActive])
+}
+
+model Table {
+  @@index([restaurantId])
+  @@index([qrCode])
+  @@index([isActive])
+}
+
+model MenuVersion {
+  @@index([restaurantId])
+  @@index([isActive])
+  @@index([isPublished])
+  @@index([version])
+}
+
+model MenuItem {
+  @@index([restaurantId])
+  @@index([menuVersionId])
+  @@index([category])
+  @@index([status])
+  @@index([name])
+}
+
+model Order {
+  @@index([restaurantId])
+  @@index([userId])
+  @@index([tableId])
+  @@index([orderNumber])
+  @@index([status])
+  @@index([paymentStatus])
+  @@index([requestId])
+  @@index([placedAt])
+}
+
+model OrderItem {
+  @@index([orderId])
+  @@index([menuItemId])
+}
+
+model AuditLog {
+  @@index([userId])
+  @@index([restaurantId])
+  @@index([orderId])
+  @@index([action])
+  @@index([tableName])
+  @@index([createdAt])
+}
