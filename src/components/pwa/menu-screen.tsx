@@ -108,7 +108,7 @@ export function MenuScreen({ onSelectItem, onViewCart, cartItems }: MenuScreenPr
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center space-x-3">
             <Image
-              src="/menupro-logo.png"
+              src="/logo-utensils.svg"
               alt="MenuPRO Logo"
               width={32}
               height={32}

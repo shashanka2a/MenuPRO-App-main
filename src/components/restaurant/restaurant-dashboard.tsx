@@ -136,7 +136,7 @@ export function RestaurantDashboard({ restaurantData, onLogout }: RestaurantDash
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <Image
-                src="/menupro-logo.png"
+                src="/logo-utensils.svg"
                 alt="MenuPRO Logo"
                 width={40}
                 height={40}

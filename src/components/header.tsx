@@ -1,8 +1,7 @@
 'use client'
 
 import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
-import Image from "next/image";
+import { Menu, Utensils } from "lucide-react";
 
 interface HeaderProps {
   onLaunchApp: () => void;
@@ -15,8 +14,8 @@ export function Header({ onLaunchApp, onRestaurantSignup }: HeaderProps) {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <Image
-            src="/logo-icon.svg"
-            alt="MenuPRO Icon"
+            src="/menupro-logo.svg"
+            alt="MenuPRO Logo"
             width={40}
             height={40}
             className="w-10 h-10"
