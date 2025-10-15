@@ -12,47 +12,53 @@ export const prisma = globalForPrisma.prisma ?? new PrismaClient({
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
 // Comprehensive Prisma Middleware
-prisma.$use(async (params, next) => {
-  // Logging middleware
-  const start = Date.now()
-  const result = await next(params)
-  const duration = Date.now() - start
-  
-  console.log(`[Prisma] ${params.model}.${params.action} - ${duration}ms`)
-  
-  return result
-})
+if (prisma.$use) {
+  prisma.$use(async (params, next) => {
+    // Logging middleware
+    const start = Date.now()
+    const result = await next(params)
+    const duration = Date.now() - start
+    
+    console.log(`[Prisma] ${params.model}.${params.action} - ${duration}ms`)
+    
+    return result
+  })
+}
 
 // Soft delete middleware for Restaurant
-prisma.$use(async (params, next) => {
-  if (params.model === 'Restaurant' && params.action === 'delete') {
-    // Convert delete to update with isActive = false
-    return next({
-      ...params,
-      action: 'update',
-      args: {
-        ...params.args,
-        data: { isActive: false }
-      }
-    })
-  }
-  return next(params)
-})
+if (prisma.$use) {
+  prisma.$use(async (params, next) => {
+    if (params.model === 'Restaurant' && params.action === 'delete') {
+      // Convert delete to update with isActive = false
+      return next({
+        ...params,
+        action: 'update',
+        args: {
+          ...params.args,
+          data: { isActive: false }
+        }
+      })
+    }
+    return next(params)
+  })
+}
 
 // Soft delete middleware for Menu
-prisma.$use(async (params, next) => {
-  if (params.model === 'Menu' && params.action === 'delete') {
-    return next({
-      ...params,
-      action: 'update',
-      args: {
-        ...params.args,
-        data: { isActive: false }
-      }
-    })
-  }
-  return next(params)
-})
+if (prisma.$use) {
+  prisma.$use(async (params, next) => {
+    if (params.model === 'Menu' && params.action === 'delete') {
+      return next({
+        ...params,
+        action: 'update',
+        args: {
+          ...params.args,
+          data: { isActive: false }
+        }
+      })
+    }
+    return next(params)
+  })
+}
 
 // Soft delete middleware for MenuItem
 prisma.$use(async (params, next) => {

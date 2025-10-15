@@ -1,4 +1,4 @@
-import { prisma } from './prisma'
+import { prisma } from './prisma-simple'
 import { UserType, OrderStatus } from '@prisma/client'
 
 // Database Helper Functions
