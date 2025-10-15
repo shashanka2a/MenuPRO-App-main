@@ -28,8 +28,8 @@ export function Footer() {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <Image
-                src="/logo-icon.svg"
-                alt="MenuPRO Icon"
+                src="/menupro-logo.svg"
+                alt="MenuPRO Logo"
                 width={40}
                 height={40}
                 className="w-10 h-10"
