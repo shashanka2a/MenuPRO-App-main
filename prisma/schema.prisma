@@ -1,0 +1,279 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User Management
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  verified  Boolean  @default(false)
+  type      UserType @default(CUSTOMER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  orders        Order[]
+  restaurant    Restaurant?
+  otpVerifications OtpVerification[]
+
+  @@map("users")
+}
+
+model OtpVerification {
+  id        String   @id @default(cuid())
+  email     String
+  otp       String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relations
+  user User? @relation(fields: [email], references: [email])
+
+  @@map("otp_verifications")
+}
+
+// Restaurant Management
+model Restaurant {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  phone       String?
+  address     String?
+  city        String?
+  state       String?
+  zipCode     String?
+  cuisine     String?
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Operating Hours
+  operatingHours OperatingHours?
+
+  // Relations
+  user     User      @relation(fields: [email], references: [email])
+  menus    Menu[]
+  orders   Order[]
+  tables   Table[]
+  qrCodes  QrCode[]
+
+  @@map("restaurants")
+}
+
+model OperatingHours {
+  id           String     @id @default(cuid())
+  restaurantId String     @unique
+  open         String     // Format: "09:00"
+  close        String     // Format: "22:00"
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  // Relations
+  restaurant Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  @@map("operating_hours")
+}
+
+// Menu Management
+model Menu {
+  id           String   @id @default(cuid())
+  restaurantId String
+  name         String
+  description  String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  restaurant Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  items      MenuItem[]
+
+  @@map("menus")
+}
+
+model MenuItem {
+  id          String   @id @default(cuid())
+  menuId      String
+  name        String
+  description String?
+  price       Decimal  @db.Decimal(10, 2)
+  category    String
+  image       String?
+  isAvailable Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  menu           Menu             @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  orderItems     OrderItem[]
+  itemOptions    MenuItemOption[]
+  customizations MenuItemCustomization[]
+
+  @@map("menu_items")
+}
+
+model MenuItemOption {
+  id        String   @id @default(cuid())
+  itemId    String
+  name      String   // e.g., "Size", "Add-ons"
+  type      OptionType @default(SINGLE)
+  required  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  menuItem MenuItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  values   OptionValue[]
+
+  @@map("menu_item_options")
+}
+
+model OptionValue {
+  id       String  @id @default(cuid())
+  optionId String
+  name     String  // e.g., "Small", "Medium", "Large"
+  price    Decimal @db.Decimal(10, 2) @default(0)
+  isDefault Boolean @default(false)
+
+  // Relations
+  option MenuItemOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+
+  @@map("option_values")
+}
+
+model MenuItemCustomization {
+  id        String   @id @default(cuid())
+  itemId    String
+  name      String   // e.g., "Extra Cheese", "No Onions"
+  price     Decimal  @db.Decimal(10, 2) @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  menuItem MenuItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  @@map("menu_item_customizations")
+}
+
+// Table Management
+model Table {
+  id           String   @id @default(cuid())
+  restaurantId String
+  tableNumber  String
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  restaurant Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  qrCode     QrCode?
+  orders     Order[]
+
+  @@unique([restaurantId, tableNumber])
+  @@map("tables")
+}
+
+model QrCode {
+  id        String   @id @default(cuid())
+  restaurantId String
+  tableId   String   @unique
+  qrCode    String   // Base64 encoded QR code
+  url       String   // The URL the QR code points to
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  restaurant Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  table      Table      @relation(fields: [tableId], references: [id], onDelete: Cascade)
+
+  @@map("qr_codes")
+}
+
+// Order Management
+model Order {
+  id           String      @id @default(cuid())
+  orderNumber  String      @unique
+  restaurantId String
+  tableId      String?
+  customerEmail String
+  status       OrderStatus @default(PENDING)
+  subtotal     Decimal     @db.Decimal(10, 2)
+  tax          Decimal     @db.Decimal(10, 2) @default(0)
+  discount     Decimal     @db.Decimal(10, 2) @default(0)
+  total        Decimal     @db.Decimal(10, 2)
+  estimatedTime String?    // e.g., "15 minutes"
+  notes        String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  // Relations
+  restaurant Restaurant   @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+  table      Table?       @relation(fields: [tableId], references: [id])
+  customer   User         @relation(fields: [customerEmail], references: [email])
+  items      OrderItem[]
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  itemId    String
+  quantity  Int
+  price     Decimal  @db.Decimal(10, 2)
+  notes     String?
+  createdAt DateTime @default(now())
+
+  // Relations
+  menuItem MenuItem @relation(fields: [itemId], references: [id])
+  order    Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@map("order_items")
+}
+
+// Analytics and Metrics
+model Analytics {
+  id           String   @id @default(cuid())
+  restaurantId String
+  date         DateTime @db.Date
+  totalOrders  Int      @default(0)
+  totalRevenue Decimal  @db.Decimal(10, 2) @default(0)
+  avgOrderValue Decimal @db.Decimal(10, 2) @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@unique([restaurantId, date])
+  @@map("analytics")
+}
+
+// Enums
+enum UserType {
+  CUSTOMER
+  RESTAURANT
+  ADMIN
+}
+
+enum OptionType {
+  SINGLE
+  MULTIPLE
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PREPARING
+  READY
+  COMPLETED
+  CANCELLED
+}
