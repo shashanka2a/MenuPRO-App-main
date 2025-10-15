@@ -2,6 +2,7 @@
 
 import { Button } from "./ui/button";
 import { Menu, Utensils } from "lucide-react";
+import Image from "next/image";
 
 interface HeaderProps {
   onLaunchApp: () => void;

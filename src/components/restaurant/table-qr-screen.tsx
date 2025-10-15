@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Badge } from "../ui/badge";
+import Image from "next/image";
 import { 
   QrCode, 
   Download, 
@@ -18,7 +19,6 @@ import {
   Table,
   Smartphone
 } from "lucide-react";
-import Image from "next/image";
 import QRCode from 'qrcode';
 
 interface TableQR {
@@ -43,34 +43,34 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
   const [selectedTables, setSelectedTables] = useState<string[]>([]);
   const [showPreview, setShowPreview] = useState(false);
 
-  const generateQRCode = async (tableNumber: string): Promise<string> => {
-    try {
-      const response = await fetch('/api/restaurant/generate-qr', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          restaurantId,
-          tableNumber
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        return data.qrCode;
-      } else {
-        throw new Error('Failed to generate QR code');
-      }
-    } catch (error) {
-      console.error('Error generating QR code:', error);
-      return '';
-    }
-  };
-
   const generateTables = useCallback(async () => {
     setIsGenerating(true);
     const newTables: TableQR[] = [];
+
+    const generateQRCode = async (tableNumber: string): Promise<string> => {
+      try {
+        const response = await fetch('/api/restaurant/generate-qr', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            restaurantId,
+            tableNumber
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          return data.qrCode;
+        } else {
+          throw new Error('Failed to generate QR code');
+        }
+      } catch (error) {
+        console.error('Error generating QR code:', error);
+        return '';
+      }
+    };
 
     for (let i = 1; i <= numberOfTables; i++) {
       const tableNumber = i.toString();
@@ -360,9 +360,11 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
                   <CardContent className="space-y-4">
                     {showPreview && (
                       <div className="text-center">
-                        <img 
+                        <Image 
                           src={table.qrCode} 
                           alt={`QR Code for Table ${table.tableNumber}`}
+                          width={128}
+                          height={128}
                           className="w-32 h-32 mx-auto border border-gray-200 rounded-lg"
                         />
                       </div>
