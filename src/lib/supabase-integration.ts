@@ -84,7 +84,7 @@ export class SupabaseIntegration {
     })
 
     // Update analytics using Supabase (better for real-time updates)
-    await this.updateAnalyticsRealtime(orderData.restaurantId, order.total)
+    await this.updateAnalyticsRealtime(orderData.restaurantId, Number(order.total))
 
     // Notify restaurant via real-time subscription
     await this.notifyRestaurantNewOrder(orderData.restaurantId, order)
@@ -229,15 +229,21 @@ export const useRealtimeOrders = (restaurantId: string) => {
     loadOrders()
 
     // Subscribe to real-time updates
-    const subscription = SupabaseIntegration.subscribeToRestaurantOrders(
+    let subscription: any = null
+    
+    SupabaseIntegration.subscribeToRestaurantOrders(
       restaurantId,
       (newOrder) => {
         setOrders(prev => [newOrder, ...prev])
       }
-    )
+    ).then(sub => {
+      subscription = sub
+    })
 
     return () => {
-      subscription.unsubscribe()
+      if (subscription) {
+        subscription.unsubscribe()
+      }
     }
   }, [restaurantId])
 
@@ -248,15 +254,21 @@ export const useRealtimeOrderStatus = (orderId: string) => {
   const [status, setStatus] = useState('PENDING')
 
   useEffect(() => {
-    const subscription = SupabaseIntegration.subscribeToOrderStatus(
+    let subscription: any = null
+    
+    SupabaseIntegration.subscribeToOrderStatus(
       orderId,
       (newStatus) => {
         setStatus(newStatus)
       }
-    )
+    ).then(sub => {
+      subscription = sub
+    })
 
     return () => {
-      subscription.unsubscribe()
+      if (subscription) {
+        subscription.unsubscribe()
+      }
     }
   }, [orderId])
 

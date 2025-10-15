@@ -218,21 +218,28 @@ export class DatabaseHelpers {
     estimatedTime?: string
     notes?: string
   }) {
+    const orderData = {
+      orderNumber: `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      restaurantId: data.restaurantId,
+      tableId: data.tableId,
+      customerEmail: data.customerEmail,
+      subtotal: data.subtotal,
+      tax: data.tax || 0,
+      discount: data.discount || 0,
+      total: data.subtotal + (data.tax || 0) - (data.discount || 0),
+      estimatedTime: data.estimatedTime,
+      notes: data.notes,
+      items: {
+        create: data.items
+      }
+    }
+
     return await prisma.order.create({
-      data: {
-        ...data,
-        items: {
-          create: data.items
-        }
-      },
+      data: orderData,
       include: {
         items: {
           include: {
-            order: {
-              include: {
-                menu: true
-              }
-            }
+            menuItem: true
           }
         },
         restaurant: true,
@@ -438,7 +445,7 @@ export class QueryHelpers {
       include: {
         items: {
           include: {
-            order: {
+            menuItem: {
               select: {
                 name: true,
                 price: true

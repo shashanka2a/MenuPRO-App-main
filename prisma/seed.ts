@@ -168,6 +168,7 @@ async function main() {
   // Create sample order
   const order = await prisma.order.create({
     data: {
+      orderNumber: `ORD-${Date.now()}`,
       restaurantId: restaurant.id,
       tableId: tables[0].id,
       customerEmail: customer.email,
