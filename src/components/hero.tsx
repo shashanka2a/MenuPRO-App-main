@@ -39,7 +39,7 @@ export function Hero({ onLaunchApp }: HeroProps) {
           className="text-5xl md:text-7xl font-bold mb-4 leading-tight"
           style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.5)' }}
         >
-          Digital Menu Platform for Restaurants
+          Digital Menu OS for Restaurants
         </h1>
         <p
           className="text-lg md:text-xl mb-6 text-gray-200 font-medium"
