@@ -1,8 +1,8 @@
-# MenuPRO Supabase Integration Guide
+# MenuOS Supabase Integration Guide
 
 ## Overview
 
-MenuPRO now includes comprehensive Supabase integration, combining the power of Prisma ORM with Supabase's real-time features, authentication, and storage capabilities.
+MenuOS now includes comprehensive Supabase integration, combining the power of Prisma ORM with Supabase's real-time features, authentication, and storage capabilities.
 
 ## What's Included
 
@@ -78,7 +78,7 @@ npm run db:seed
 
 ### Hybrid Approach
 
-MenuPRO uses a hybrid architecture that combines the best of both worlds:
+MenuOS uses a hybrid architecture that combines the best of both worlds:
 
 ```typescript
 // Complex queries and transactions → Prisma

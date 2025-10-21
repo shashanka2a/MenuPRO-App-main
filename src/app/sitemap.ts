@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://menupro.app'
+  const baseUrl = 'https://menuos.app'
   
   return [
     {
@@ -95,7 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog/menupro-vs-square-toast`,
+      url: `${baseUrl}/blog/menuos-vs-square-toast`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

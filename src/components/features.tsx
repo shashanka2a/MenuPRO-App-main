@@ -38,7 +38,7 @@ export function Features({ onLaunchApp }: FeaturesProps) {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Why Choose MenuPRO?
+          Why Choose MenuOS?
         </h2>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Everything you need to modernize your restaurant operations and boost revenue

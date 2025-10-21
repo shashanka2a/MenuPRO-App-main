@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function MenuProIcon({ size = 32 }: { size?: number }) {
+export default function MenuOSIcon({ size = 32 }: { size?: number }) {
   return (
     <svg
       width={size}

@@ -36,7 +36,7 @@ export function OrderConfirmationScreen({
           <div className="flex justify-center mb-4">
             <Image
               src="/menupro-logo.png"
-              alt="MenuPRO Logo"
+              alt="MenuOS Logo"
               width={60}
               height={60}
               className="w-15 h-15"

@@ -1,8 +1,8 @@
-# MenuPRO Database Setup Guide
+# MenuOS Database Setup Guide
 
 ## Overview
 
-MenuPRO now includes a comprehensive Prisma-based database setup with PostgreSQL, featuring:
+MenuOS now includes a comprehensive Prisma-based database setup with PostgreSQL, featuring:
 
 - **Complete data models** for restaurants, menus, orders, users, and analytics
 - **Comprehensive middleware** for logging, soft deletes, validation, and more
@@ -27,7 +27,7 @@ cp env.example .env.local
 
 Update `.env.local` with your database credentials:
 ```bash
-DATABASE_URL="postgresql://username:password@localhost:5432/menupro_db?schema=public"
+DATABASE_URL="postgresql://username:password@localhost:5432/menuos_db?schema=public"
 JWT_SECRET="your-super-secret-jwt-key"
 # ... other variables
 ```

@@ -157,7 +157,7 @@ async function main() {
           restaurantId: restaurant.id,
           tableId: table.id,
           qrCode: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==`, // Placeholder
-          url: `https://menupro.app/order?restaurant=${restaurant.id}&table=${table.tableNumber}`
+          url: `https://menuos.app/order?restaurant=${restaurant.id}&table=${table.tableNumber}`
         }
       })
     )

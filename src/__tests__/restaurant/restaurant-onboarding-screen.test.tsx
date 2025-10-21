@@ -23,7 +23,7 @@ describe('Restaurant Onboarding Screen', () => {
     )
     
     // Check for main heading
-    expect(screen.getByText('Join MenuPRO')).toBeInTheDocument()
+    expect(screen.getByText('Join MenuOS')).toBeInTheDocument()
     
     // Check for description
     expect(screen.getByText(/Let&apos;s get your restaurant set up/)).toBeInTheDocument()
@@ -34,7 +34,7 @@ describe('Restaurant Onboarding Screen', () => {
     expect(screen.getByText('Menu Setup')).toBeInTheDocument()
   })
 
-  it('displays the MenuPRO logo', () => {
+  it('displays the MenuOS logo', () => {
     render(
       <RestaurantOnboardingScreen 
         onRestaurantSubmit={mockOnRestaurantSubmit}
@@ -43,7 +43,7 @@ describe('Restaurant Onboarding Screen', () => {
       />
     )
     
-    const logo = screen.getByAltText('MenuPRO Logo')
+    const logo = screen.getByAltText('MenuOS Logo')
     expect(logo).toBeInTheDocument()
     expect(logo).toHaveAttribute('src', '/menupro-logo.png')
   })
@@ -225,7 +225,7 @@ describe('Restaurant Onboarding Screen', () => {
     
     // Check for proper heading structure
     const mainHeading = screen.getByRole('heading', { level: 1 })
-    expect(mainHeading).toHaveTextContent('Join MenuPRO')
+    expect(mainHeading).toHaveTextContent('Join MenuOS')
     
     // Check for form accessibility
     const nameInput = screen.getByLabelText(/Restaurant name/i)
@@ -245,7 +245,7 @@ describe('Restaurant Onboarding Screen', () => {
       />
     )
     
-    const container = screen.getByText('Join MenuPRO').closest('div')
+    const container = screen.getByText('Join MenuOS').closest('div')
     expect(container).toHaveClass('min-h-screen', 'flex', 'flex-col', 'items-center', 'justify-center')
   })
 })

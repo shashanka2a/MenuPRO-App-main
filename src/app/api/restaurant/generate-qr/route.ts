@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate the URL for the QR code
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://menupro.app';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://menuos.app';
     const orderUrl = `${baseUrl}/order?restaurant=${restaurantId}&table=${tableNumber}`;
 
     // Generate QR code as data URL
@@ -55,7 +55,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://menupro.app';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://menuos.app';
     const qrCodes = [];
 
     for (let i = 1; i <= numberOfTables; i++) {

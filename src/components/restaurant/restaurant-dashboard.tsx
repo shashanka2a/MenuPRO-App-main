@@ -137,13 +137,13 @@ export function RestaurantDashboard({ restaurantData, onLogout }: RestaurantDash
             <div className="flex items-center space-x-3">
               <Image
                 src="/logo-utensils.svg"
-                alt="MenuPRO Logo"
+                alt="MenuOS Logo"
                 width={40}
                 height={40}
                 className="w-10 h-10"
               />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">MenuPRO Dashboard</h1>
+                <h1 className="text-2xl font-bold text-gray-900">MenuOS Dashboard</h1>
                 <p className="text-sm text-gray-600">{restaurantData?.name || 'Restaurant Name'}</p>
               </div>
             </div>

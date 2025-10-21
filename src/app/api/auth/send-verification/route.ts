@@ -36,11 +36,11 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.GMAIL_USER,
       to: email,
-      subject: 'MenuPRO - Email Verification Code',
+      subject: 'MenuOS - Email Verification Code',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #ea580c; font-size: 28px; margin: 0;">MenuPRO</h1>
+            <h1 style="color: #ea580c; font-size: 28px; margin: 0;">MenuOS</h1>
             <p style="color: #666; margin: 5px 0;">Digital Menu Experience</p>
           </div>
           
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
           
           <div style="margin-top: 20px; text-align: center; color: #666; font-size: 12px;">
             <p>If you didn't request this code, please ignore this email.</p>
-            <p>This is an automated message from MenuPRO.</p>
+            <p>This is an automated message from MenuOS.</p>
           </div>
         </div>
       `,

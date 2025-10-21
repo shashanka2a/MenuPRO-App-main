@@ -10,7 +10,7 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Restaurant Owner",
     restaurant: "Bella Vista Bistro",
-    content: "MenuPRO has increased our revenue while reducing operational costs. The $19/month fee is nothing compared to the commission we were paying before!",
+    content: "MenuOS has increased our revenue while reducing operational costs. The $19/month fee is nothing compared to the commission we were paying before!",
     rating: 5,
     avatar: "SJ",
     logo: "🍽️"
@@ -20,7 +20,7 @@ const testimonials = [
     name: "Mike Chen",
     role: "Restaurant Owner",
     restaurant: "Golden Dragon",
-    content: "Since implementing MenuPRO, our order accuracy has improved significantly and customer satisfaction is at an all-time high. The analytics help us make better business decisions.",
+    content: "Since implementing MenuOS, our order accuracy has improved significantly and customer satisfaction is at an all-time high. The analytics help us make better business decisions.",
     rating: 5,
     avatar: "MC",
     logo: "🐉"
@@ -74,7 +74,7 @@ export function Testimonials() {
             What Our Customers Say
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join restaurants already using MenuPRO to transform their business
+            Join restaurants already using MenuOS to transform their business
           </p>
         </div>
         

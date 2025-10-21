@@ -53,7 +53,7 @@ describe('Menu Upload Screen', () => {
     expect(screen.getByText('PDF Menu')).toBeInTheDocument()
   })
 
-  it('displays the MenuPRO logo', () => {
+  it('displays the MenuOS logo', () => {
     render(
       <MenuUploadScreen 
         onMenuUploaded={mockOnMenuUploaded}
@@ -62,7 +62,7 @@ describe('Menu Upload Screen', () => {
       />
     )
     
-    const logo = screen.getByAltText('MenuPRO Logo')
+    const logo = screen.getByAltText('MenuOS Logo')
     expect(logo).toBeInTheDocument()
     expect(logo).toHaveAttribute('src', '/menupro-logo.png')
   })

@@ -141,7 +141,7 @@ export function OTPVerificationScreen({
                 </div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-2">Email Verified!</h2>
                 <p className="text-gray-600">
-                  Welcome to MenuPRO! You can now browse our menu.
+                  Welcome to MenuOS! You can now browse our menu.
                 </p>
               </div>
             </CardContent>
@@ -159,7 +159,7 @@ export function OTPVerificationScreen({
           <div className="flex justify-center mb-4">
             <Image
               src="/menupro-logo.png"
-              alt="MenuPRO Logo"
+              alt="MenuOS Logo"
               width={60}
               height={60}
               className="w-15 h-15"

@@ -38,7 +38,7 @@ describe('Restaurant OTP Screen', () => {
     expect(screen.getByRole('button', { name: /Verify Code/i })).toBeInTheDocument()
   })
 
-  it('displays the MenuPRO logo', () => {
+  it('displays the MenuOS logo', () => {
     render(
       <RestaurantOTPScreen 
         email="test@restaurant.com"
@@ -48,7 +48,7 @@ describe('Restaurant OTP Screen', () => {
       />
     )
     
-    const logo = screen.getByAltText('MenuPRO Logo')
+    const logo = screen.getByAltText('MenuOS Logo')
     expect(logo).toBeInTheDocument()
     expect(logo).toHaveAttribute('src', '/menupro-logo.png')
   })
@@ -165,7 +165,7 @@ describe('Restaurant OTP Screen', () => {
     )
     
     expect(screen.getByText('Email Verified!')).toBeInTheDocument()
-    expect(screen.getByText(/Welcome to MenuPRO! Let&apos;s set up your restaurant dashboard/)).toBeInTheDocument()
+    expect(screen.getByText(/Welcome to MenuOS! Let&apos;s set up your restaurant dashboard/)).toBeInTheDocument()
   })
 
   it('handles resend email functionality', async () => {

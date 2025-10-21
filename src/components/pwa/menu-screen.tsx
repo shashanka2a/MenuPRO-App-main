@@ -109,13 +109,13 @@ export function MenuScreen({ onSelectItem, onViewCart, cartItems }: MenuScreenPr
           <div className="flex items-center space-x-3">
             <Image
               src="/logo-utensils.svg"
-              alt="MenuPRO Logo"
+              alt="MenuOS Logo"
               width={32}
               height={32}
               className="w-8 h-8"
             />
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">MenuPRO</h1>
+              <h1 className="text-2xl font-bold text-gray-900">MenuOS</h1>
               <p className="text-sm text-gray-600">Table 7 • The Garden Restaurant</p>
             </div>
           </div>

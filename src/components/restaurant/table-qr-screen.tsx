@@ -108,7 +108,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
 
   const downloadQRCode = (table: TableQR) => {
     const link = document.createElement('a');
-    link.download = `MenuPRO-Table-${table.tableNumber}-QR.png`;
+    link.download = `MenuOS-Table-${table.tableNumber}-QR.png`;
     link.href = table.qrCode;
     link.click();
   };
@@ -128,7 +128,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
       printWindow.document.write(`
         <html>
           <head>
-            <title>MenuPRO QR Code - Table ${table.tableNumber}</title>
+            <title>MenuOS QR Code - Table ${table.tableNumber}</title>
             <link rel="stylesheet" href="/styles/print.css">
             <style>
               body { 
@@ -217,7 +217,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
           </head>
           <body>
             <div class="qr-print-page">
-              <div class="logo">MenuPRO</div>
+              <div class="logo">MenuOS</div>
               <div class="qr-container">
                 <div class="table-info">Table ${table.tableNumber}</div>
                 <div class="qr-code">
@@ -260,7 +260,7 @@ export function TableQRScreen({ restaurantId, restaurantName, onComplete, onBack
           <div className="flex justify-center mb-4">
             <Image
               src="/menupro-logo.png"
-              alt="MenuPRO Logo"
+              alt="MenuOS Logo"
               width={60}
               height={60}
               className="w-15 h-15"

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/', '/dashboard/', '/restaurant-dashboard/'],
     },
-    sitemap: 'https://menupro.app/sitemap.xml',
+    sitemap: 'https://menuos.app/sitemap.xml',
   }
 }

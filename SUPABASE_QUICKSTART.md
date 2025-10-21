@@ -1,8 +1,8 @@
-# 🚀 MenuPRO Supabase Quick Start
+# 🚀 MenuOS Supabase Quick Start
 
 ## ✅ What's Already Done
 
-Your MenuPRO project now includes complete Supabase integration:
+Your MenuOS project now includes complete Supabase integration:
 
 - ✅ **Supabase Client**: Configured with your credentials
 - ✅ **Real-time Features**: Order updates and status changes
@@ -30,14 +30,14 @@ SUPABASE_SERVICE_ROLE_KEY="your-service-role-key-here"
 
 # Other required variables
 JWT_SECRET="your-super-secret-jwt-key-change-this-in-production"
-EMAIL_FROM="noreply@menupro.app"
+EMAIL_FROM="noreply@menuos.app"
 EMAIL_SERVICE="gmail"
 EMAIL_USER="your-email@gmail.com"
 EMAIL_PASS="your-app-password"
 STRIPE_PUBLISHABLE_KEY="pk_test_your_stripe_publishable_key"
 STRIPE_SECRET_KEY="sk_test_your_stripe_secret_key"
 STRIPE_WEBHOOK_SECRET="whsec_your_webhook_secret"
-QR_CODE_BASE_URL="https://menupro.app/order"
+QR_CODE_BASE_URL="https://menuos.app/order"
 GOOGLE_ANALYTICS_ID="G-XXXXXXXXXX"
 NODE_ENV="development"
 ```
@@ -130,7 +130,7 @@ echo $NEXT_PUBLIC_SUPABASE_URL
 
 ## 🎉 You're Ready!
 
-Once you complete the steps above, your MenuPRO app will have:
+Once you complete the steps above, your MenuOS app will have:
 
 - ✅ **Real-time order updates**
 - ✅ **File storage for images**
@@ -147,7 +147,7 @@ Once you complete the steps above, your MenuPRO app will have:
 ## 🆘 Need Help?
 
 1. Check the [Supabase Documentation](https://supabase.com/docs)
-2. Review the [MenuPRO Documentation](./repowiki/)
+2. Review the [MenuOS Documentation](./repowiki/)
 3. Test individual components with `npm run supabase:test`
 
-Your Supabase integration is ready to power MenuPRO's real-time features! 🚀
+Your Supabase integration is ready to power MenuOS's real-time features! 🚀

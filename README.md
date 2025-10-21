@@ -1,4 +1,4 @@
-# MenuPRO - Next.js App
+# MenuOS - Next.js App
 
 A modern restaurant menu management and ordering system built with Next.js 14, TypeScript, and Tailwind CSS.
 

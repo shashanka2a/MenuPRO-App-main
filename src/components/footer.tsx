@@ -29,12 +29,12 @@ export function Footer() {
             <div className="flex items-center space-x-3 mb-4">
               <Image
                 src="/menupro-logo.svg"
-                alt="MenuPRO Logo"
+                alt="MenuOS Logo"
                 width={40}
                 height={40}
                 className="w-10 h-10"
               />
-              <h3 className="text-2xl font-bold text-orange-600">MenuPRO</h3>
+              <h3 className="text-2xl font-bold text-orange-600">MenuOS</h3>
             </div>
             <p className="text-gray-400 mb-4">
               The complete digital ordering solution for modern restaurants. No commission fees, just results.
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 MenuPRO. All rights reserved.</p>
+          <p>&copy; 2025 MenuOS. All rights reserved.</p>
         </div>
       </div>
     </footer>

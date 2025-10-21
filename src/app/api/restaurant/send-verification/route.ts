@@ -36,11 +36,11 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.GMAIL_USER,
       to: email,
-      subject: 'MenuPRO - Restaurant Account Verification',
+      subject: 'MenuOS - Restaurant Account Verification',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="text-align: center; margin-bottom: 30px;">
-            <h1 style="color: #ea580c; font-size: 28px; margin: 0;">MenuPRO</h1>
+            <h1 style="color: #ea580c; font-size: 28px; margin: 0;">MenuOS</h1>
             <p style="color: #666; margin: 5px 0;">Restaurant Management Platform</p>
           </div>
           
@@ -55,16 +55,16 @@ export async function POST(request: NextRequest) {
           </div>
           
           <div style="margin-top: 30px; padding: 20px; background: #fef3c7; border-radius: 8px;">
-            <h3 style="color: #92400e; margin: 0 0 10px 0;">Welcome to MenuPRO!</h3>
+            <h3 style="color: #92400e; margin: 0 0 10px 0;">Welcome to MenuOS!</h3>
             <p style="color: #92400e; margin: 0; font-size: 14px;">
-              You're about to join thousands of restaurants using MenuPRO to streamline their digital ordering. 
+              You're about to join thousands of restaurants using MenuOS to streamline their digital ordering. 
               This verification ensures your restaurant account is secure.
             </p>
           </div>
           
           <div style="margin-top: 20px; text-align: center; color: #666; font-size: 12px;">
             <p>If you didn't request this code, please ignore this email.</p>
-            <p>This is an automated message from MenuPRO Restaurant Platform.</p>
+            <p>This is an automated message from MenuOS Restaurant Platform.</p>
           </div>
         </div>
       `,

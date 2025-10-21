@@ -34,13 +34,13 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
           <div className="flex justify-center mb-4">
             <Image
               src="/menupro-logo.png"
-              alt="MenuPRO Logo"
+              alt="MenuOS Logo"
               width={80}
               height={80}
               className="w-20 h-20"
             />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">MenuPRO</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">MenuOS</h1>
           <p className="text-gray-600">Digital Menu Experience</p>
         </div>
 

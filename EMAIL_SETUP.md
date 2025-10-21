@@ -28,7 +28,7 @@ NEXTAUTH_SECRET=your-nextauth-secret
 - In your Google Account settings, go to Security
 - Under "2-Step Verification", click on "App passwords"
 - Select "Mail" as the app and "Other" as the device
-- Enter "MenuPRO" as the device name
+- Enter "MenuOS" as the device name
 - Copy the generated 16-character password
 - Use this password as `GMAIL_APP_PASSWORD` in your `.env.local`
 

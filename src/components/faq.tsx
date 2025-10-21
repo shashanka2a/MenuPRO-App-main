@@ -11,7 +11,7 @@ interface FAQProps {
 
 const faqs = [
   {
-    question: "How does MenuPRO work?",
+    question: "How does MenuOS work?",
     answer: "Customers scan a QR code at their table using their smartphone, browse your digital menu, and place orders directly. No need for waiters to take orders - customers order what they want, when they want it."
   },
   {
@@ -31,8 +31,8 @@ const faqs = [
     answer: "We provide backup options including printed menus with QR codes and staff-assisted ordering. Our system works on any device with a camera and internet connection."
   },
   {
-    question: "When will MenuPRO be available?",
-    answer: "MenuPRO is launching soon! We're currently in development and will be available for restaurants to start using in the coming months. Sign up to be notified when we launch."
+    question: "When will MenuOS be available?",
+    answer: "MenuOS is launching soon! We're currently in development and will be available for restaurants to start using in the coming months. Sign up to be notified when we launch."
   }
 ];
 
@@ -52,7 +52,7 @@ export function FAQ({ onLaunchApp }: FAQProps) {
             Common Questions
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to know about MenuPRO
+            Everything you need to know about MenuOS
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export function FAQ({ onLaunchApp }: FAQProps) {
             Get Notified When We Launch
           </Button>
           <p className="text-sm text-gray-500 mt-4">
-            Be the first to know when MenuPRO is available
+            Be the first to know when MenuOS is available
           </p>
         </div>
       </div>

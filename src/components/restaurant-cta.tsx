@@ -59,7 +59,7 @@ export function RestaurantCTA({ onRestaurantSignup }: RestaurantCTAProps) {
             Ready to Transform Your Restaurant?
           </h2>
           <p className="text-xl text-orange-100 max-w-3xl mx-auto">
-            Join 500+ restaurants already using MenuPRO to increase revenue, 
+            Join 500+ restaurants already using MenuOS to increase revenue, 
             reduce wait times, and provide a better customer experience.
           </p>
         </div>
@@ -104,7 +104,7 @@ export function RestaurantCTA({ onRestaurantSignup }: RestaurantCTAProps) {
                 <div className="flex justify-center mb-4">
                   <Image
                     src="/menupro-logo.png"
-                    alt="MenuPRO Logo"
+                    alt="MenuOS Logo"
                     width={60}
                     height={60}
                     className="w-15 h-15"

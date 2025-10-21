@@ -1,11 +1,11 @@
 'use client'
 
-interface MenuPROIconProps {
+interface MenuOSIconProps {
   size?: number;
   className?: string;
 }
 
-export function MenuPROIcon({ size = 32, className = "" }: MenuPROIconProps) {
+export function MenuOSIcon({ size = 32, className = "" }: MenuOSIconProps) {
   return (
     <div 
       className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-red-500 text-white font-bold ${className}`}

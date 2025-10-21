@@ -73,7 +73,7 @@ export function PaymentSuccessScreen({ onNewOrder, onBackToLanding }: PaymentSuc
         {/* Footer Message */}
         <div className="mt-8 p-4 bg-gray-50 rounded-lg">
           <p className="text-sm text-gray-600">
-            Thank you for choosing MenuPRO! 
+            Thank you for choosing MenuOS! 
             <br />
             Rate your experience in our app.
           </p>

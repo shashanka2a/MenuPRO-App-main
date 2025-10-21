@@ -107,7 +107,7 @@ export function HowItWorks({ onLaunchApp }: HowItWorksProps) {
       limitations: ['Expensive', 'Long contracts', 'Steep learning curve']
     },
     {
-      name: 'MenuPRO',
+      name: 'MenuOS',
       price: '$19/month',
       features: ['QR ordering', 'No commission', 'Easy setup'],
       advantages: ['Affordable', 'No contracts', 'Simple to use']
@@ -182,7 +182,7 @@ export function HowItWorks({ onLaunchApp }: HowItWorksProps) {
         <div className="bg-gray-50 rounded-2xl p-8 mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose MenuPRO Over Square & Toast?
+              Why Choose MenuOS Over Square & Toast?
             </h3>
             <p className="text-lg text-gray-600">
               Compare the leading restaurant management solutions
@@ -192,13 +192,13 @@ export function HowItWorks({ onLaunchApp }: HowItWorksProps) {
           <div className="grid md:grid-cols-3 gap-8">
             {competitors.map((competitor, index) => (
               <Card key={index} className={`border-none shadow-lg ${
-                competitor.name === 'MenuPRO' ? 'ring-2 ring-orange-500 bg-orange-50' : 'bg-white'
+                competitor.name === 'MenuOS' ? 'ring-2 ring-orange-500 bg-orange-50' : 'bg-white'
               }`}>
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
                     <h4 className="text-2xl font-bold text-gray-900 mb-2">{competitor.name}</h4>
                     <div className="text-3xl font-bold text-orange-600 mb-4">{competitor.price}</div>
-                    {competitor.name === 'MenuPRO' && (
+                    {competitor.name === 'MenuOS' && (
                       <Badge className="bg-orange-100 text-orange-800">Best Value</Badge>
                     )}
                   </div>
@@ -218,12 +218,12 @@ export function HowItWorks({ onLaunchApp }: HowItWorksProps) {
 
                     <div>
                       <h5 className="font-semibold text-gray-900 mb-2">
-                        {competitor.name === 'MenuPRO' ? 'Advantages:' : 'Limitations:'}
+                        {competitor.name === 'MenuOS' ? 'Advantages:' : 'Limitations:'}
                       </h5>
                       <ul className="space-y-1">
                         {(competitor.limitations || competitor.advantages).map((item, itemIndex) => (
                           <li key={itemIndex} className="flex items-center text-sm text-gray-600">
-                            {competitor.name === 'MenuPRO' ? (
+                            {competitor.name === 'MenuOS' ? (
                               <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                             ) : (
                               <div className="w-4 h-4 text-red-500 mr-2 flex-shrink-0">×</div>
@@ -246,7 +246,7 @@ export function HowItWorks({ onLaunchApp }: HowItWorksProps) {
             Ready to Transform Your Restaurant?
           </h3>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of restaurants already using MenuPRO to increase revenue, 
+            Join thousands of restaurants already using MenuOS to increase revenue, 
             reduce wait times, and provide a better customer experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

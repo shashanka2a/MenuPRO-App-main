@@ -116,7 +116,7 @@ export function RestaurantOnboardingScreen({ onEmailVerified, onBack }: Restaura
             <div className="flex justify-center mb-4">
               <Image
                 src="/menupro-logo.png"
-                alt="MenuPRO Logo"
+                alt="MenuOS Logo"
                 width={60}
                 height={60}
                 className="w-15 h-15"
@@ -173,13 +173,13 @@ export function RestaurantOnboardingScreen({ onEmailVerified, onBack }: Restaura
           <div className="flex justify-center mb-4">
             <Image
               src="/menupro-logo.png"
-              alt="MenuPRO Logo"
+              alt="MenuOS Logo"
               width={60}
               height={60}
               className="w-15 h-15"
             />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Join MenuPRO</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Join MenuOS</h1>
           <p className="text-gray-600">Let&apos;s get your restaurant set up with digital ordering</p>
         </div>
 
