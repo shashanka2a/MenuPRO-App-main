@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: 'The best restaurant CMS for digital menus and QR ordering. No commission fees, $19/month flat rate. Better than Square ($69+/month) and Toast ($79+/month). Setup in 15 minutes.',
     images: [
       {
-        url: '/menupro-logo.png',
+        url: '/menupro-logo.svg',
         width: 1200,
         height: 630,
         alt: 'MenuOS Restaurant CMS - Better Than Square and Toast',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MenuOS - #1 Restaurant CMS | Better Than Square & Toast',
     description: 'The best restaurant CMS for digital menus and QR ordering. No commission fees, $19/month flat rate. Better than Square and Toast.',
-    images: ['/menupro-logo.png'],
+    images: ['/menupro-logo.svg'],
     creator: '@menuos',
   },
   viewport: {

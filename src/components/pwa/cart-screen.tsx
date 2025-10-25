@@ -103,7 +103,7 @@ export function CartScreen({ cartItems, onUpdateItem, onBack, onCheckout }: Cart
             </Button>
             <div className="flex items-center space-x-2">
               <Image
-                src="/menupro-logo.png"
+                src="/menupro-logo.svg"
                 alt="MenuOS Logo"
                 width={24}
                 height={24}
@@ -148,7 +148,7 @@ export function CartScreen({ cartItems, onUpdateItem, onBack, onCheckout }: Cart
           </Button>
           <div className="flex items-center space-x-2">
             <Image
-              src="/menupro-logo.png"
+              src="/menupro-logo.svg"
               alt="MenuOS Logo"
               width={24}
               height={24}

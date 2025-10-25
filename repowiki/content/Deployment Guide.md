@@ -571,7 +571,7 @@ export const metadata: Metadata = {
     title: 'MenuPRO - #1 Restaurant CMS | Better Than Square & Toast | $19/month',
     description: 'The best restaurant CMS for digital menus and QR ordering. No commission fees, $19/month flat rate.',
     images: [{
-      url: '/menupro-logo.png',
+      url: '/menupro-logo.svg',
       width: 1200,
       height: 630,
       alt: 'MenuPRO Restaurant CMS - Better Than Square and Toast',

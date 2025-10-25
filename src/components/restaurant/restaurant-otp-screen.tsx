@@ -158,7 +158,7 @@ export function RestaurantOTPScreen({
         <div className="mb-8">
           <div className="flex justify-center mb-4">
             <Image
-              src="/menupro-logo.png"
+              src="/menupro-logo.svg"
               alt="MenuOS Logo"
               width={60}
               height={60}

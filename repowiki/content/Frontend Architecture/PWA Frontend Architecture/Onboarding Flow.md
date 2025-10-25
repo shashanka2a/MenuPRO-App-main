@@ -374,7 +374,7 @@ Images and other static assets are loaded efficiently:
 
 ```typescript
 <Image
-  src="/menupro-logo.png"
+  src="/menupro-logo.svg"
   alt="MenuPRO Logo"
   width={80}
   height={80}

@@ -33,7 +33,7 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
         <div className="mb-12">
           <div className="flex justify-center mb-4">
             <Image
-              src="/menupro-logo.png"
+              src="/menupro-logo.svg"
               alt="MenuOS Logo"
               width={80}
               height={80}

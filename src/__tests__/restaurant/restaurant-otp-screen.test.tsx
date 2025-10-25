@@ -50,7 +50,7 @@ describe('Restaurant OTP Screen', () => {
     
     const logo = screen.getByAltText('MenuOS Logo')
     expect(logo).toBeInTheDocument()
-    expect(logo).toHaveAttribute('src', '/menupro-logo.png')
+    expect(logo).toHaveAttribute('src', '/menupro-logo.svg')
   })
 
   it('handles OTP input correctly', async () => {

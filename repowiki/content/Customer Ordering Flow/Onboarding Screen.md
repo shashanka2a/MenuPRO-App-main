@@ -295,7 +295,7 @@ Several strategies ensure rapid loading:
 ```typescript
 // Optimized image loading
 <Image
-  src="/menupro-logo.png"
+  src="/menupro-logo.svg"
   alt="MenuPRO Logo"
   width={80}
   height={80}

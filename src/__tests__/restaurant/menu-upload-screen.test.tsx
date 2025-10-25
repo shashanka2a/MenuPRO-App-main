@@ -64,7 +64,7 @@ describe('Menu Upload Screen', () => {
     
     const logo = screen.getByAltText('MenuOS Logo')
     expect(logo).toBeInTheDocument()
-    expect(logo).toHaveAttribute('src', '/menupro-logo.png')
+    expect(logo).toHaveAttribute('src', '/menupro-logo.svg')
   })
 
   it('shows upload method selection initially', () => {

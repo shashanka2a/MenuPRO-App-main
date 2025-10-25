@@ -43,7 +43,7 @@ describe('Email Verification Screen', () => {
     
     const logo = screen.getByAltText('MenuPRO Logo')
     expect(logo).toBeInTheDocument()
-    expect(logo).toHaveAttribute('src', '/menupro-logo.png')
+    expect(logo).toHaveAttribute('src', '/menupro-logo.svg')
   })
 
   it('handles email input and submission', async () => {

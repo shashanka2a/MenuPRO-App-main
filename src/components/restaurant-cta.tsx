@@ -103,7 +103,7 @@ export function RestaurantCTA({ onRestaurantSignup }: RestaurantCTAProps) {
               <div className="text-center mb-6">
                 <div className="flex justify-center mb-4">
                   <Image
-                    src="/menupro-logo.png"
+                    src="/menupro-logo.svg"
                     alt="MenuOS Logo"
                     width={60}
                     height={60}

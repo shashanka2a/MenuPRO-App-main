@@ -29,7 +29,7 @@ describe('QR Scan Screen', () => {
     
     const logo = screen.getByAltText('MenuPRO Logo')
     expect(logo).toBeInTheDocument()
-    expect(logo).toHaveAttribute('src', '/menupro-logo.png')
+    expect(logo).toHaveAttribute('src', '/menupro-logo.svg')
   })
 
   it('shows camera icon and instructions', () => {
