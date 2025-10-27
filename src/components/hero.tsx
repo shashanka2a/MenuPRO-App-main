@@ -3,6 +3,7 @@
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeroProps {
   onLaunchApp: () => void;
@@ -62,12 +63,12 @@ export function Hero({ onLaunchApp }: HeroProps) {
             Get Started
           </Button>
           <Button 
-            onClick={onLaunchApp}
             size="lg" 
             variant="outline"
             className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-10 py-6 text-xl rounded-full shadow-md shadow-black/10"
+            asChild
           >
-            View Demo
+            <Link href="/demo">View Demo</Link>
           </Button>
         </div>
       </div>

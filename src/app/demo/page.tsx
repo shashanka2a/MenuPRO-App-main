@@ -457,10 +457,10 @@ export default function DemoPage() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-orange-600 text-lg px-8 py-6 h-auto font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="border-2 border-white text-orange-600 hover:bg-white hover:text-orange-600 text-lg px-8 py-6 h-auto font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   asChild
                 >
-                  <Link href="/" className="flex items-center">
+                  <Link href="https://calendly.com/5ha5hank/availability" className="flex items-center" target="_blank" rel="noopener noreferrer">
                     Schedule Demo
                     <Users className="w-5 h-5 ml-2" />
                   </Link>
