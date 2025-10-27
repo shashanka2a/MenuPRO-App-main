@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { CheckCircle, Zap, Clock, DollarSign, Smartphone, QrCode, Upload, TrendingUp, ArrowRight, Star, Users, Shield, Sparkles } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function DemoPage() {
   return (
@@ -13,9 +14,13 @@ export default function DemoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                <span className="text-white font-bold text-lg">M</span>
-              </div>
+              <Image
+                src="/menupro-logo.svg"
+                alt="MenuOS Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10 group-hover:scale-105 transition-transform duration-300"
+              />
               <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">MenuOS</span>
             </Link>
             <div className="flex items-center space-x-4">
