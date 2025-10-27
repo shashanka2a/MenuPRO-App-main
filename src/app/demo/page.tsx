@@ -54,7 +54,7 @@ export default function DemoPage() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Watch how Wendy&apos;s and other restaurants are revolutionizing their ordering experience with MenuOS. 
+            Watch how Wendy&apos;s and other restaurants are revolutionizing their ordering experience with MenuOS.  
             <span className="text-orange-600 font-semibold">No more waiting in lines</span>, 
             <span className="text-red-600 font-semibold">no more commission fees</span>, 
             just seamless digital ordering.
@@ -226,6 +226,63 @@ export default function DemoPage() {
           </div>
         </div>
 
+        {/* Calendly Demo Scheduling Section */}
+        <div className="mb-24">
+          <Card className="shadow-2xl border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
+            <CardHeader className="text-center pb-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-6">
+                <Users className="w-10 h-10 text-white" />
+              </div>
+              <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
+                Schedule Your Personal Demo
+              </CardTitle>
+              <CardDescription className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Book a 15-minute demo with our team to see MenuOS in action and get your questions answered
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="px-8 pb-8">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <div className="relative w-full" style={{ paddingBottom: '75%', minHeight: '600px' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                    src="https://calendly.com/5ha5hank/availability?embed=true&embed_domain=menupro.app&embed_type=Inline"
+                    title="Schedule Demo with MenuOS Team"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  ></iframe>
+                </div>
+              </div>
+              <div className="mt-8 text-center">
+                <p className="text-gray-600 text-lg mb-4">
+                  Can&apos;t find a time that works? 
+                  <a 
+                    href="https://calendly.com/5ha5hank/availability" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-orange-600 hover:text-orange-700 font-semibold ml-1"
+                  >
+                    View all available times
+                  </a>
+                </p>
+                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    Free consultation
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    15-minute demo
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                    No commitment required
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Enhanced Integration Steps Flow */}
         <div className="mb-24">
           <div className="text-center mb-16">
@@ -251,8 +308,8 @@ export default function DemoPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Upload Your Menu</h3>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Simply upload your menu PDF or take photos. Our AI automatically extracts 
-                items, prices, and descriptions. Takes 2 minutes.
+                Upload your menu PDF or photos. Our AI technology automatically extracts 
+                items, prices, and descriptions. Process completes in 2 minutes.
               </p>
               <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                 <p className="text-green-700 font-medium flex items-center justify-center">
@@ -274,8 +331,8 @@ export default function DemoPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Generate QR Codes</h3>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Our system automatically generates unique QR codes for each table. 
-                Print and place them on tables. Takes 1 minute.
+                Our platform automatically creates unique QR codes for each table. 
+                Print and position them on tables. Setup completes in 1 minute.
               </p>
               <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                 <p className="text-green-700 font-medium flex items-center justify-center">
@@ -298,7 +355,7 @@ export default function DemoPage() {
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Start Taking Orders</h3>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 Customers scan QR codes and place orders directly. Orders appear 
-                instantly on your dashboard. Ready in 30 seconds.
+                instantly on your dashboard. System ready in 30 seconds.
               </p>
               <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                 <p className="text-green-700 font-medium flex items-center justify-center">
@@ -320,8 +377,8 @@ export default function DemoPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Scale & Optimize</h3>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Track sales, update menus instantly, and optimize operations with 
-                detailed analytics. Continuous improvement.
+                Monitor sales performance, update menus instantly, and optimize operations with 
+                comprehensive analytics. Drive continuous improvement.
               </p>
               <div className="p-4 bg-green-50 rounded-xl border border-green-200">
                 <p className="text-green-700 font-medium flex items-center justify-center">
