@@ -64,7 +64,7 @@ export default function DemoPage() {
                   <Smartphone className="w-8 h-8 mr-4" />
                   MenuOS Demo Video
                 </CardTitle>
-                <CardDescription className="text-orange-100 text-lg mt-2">
+                <CardDescription className="text-orange-100 text-lg mt-2 text-center">
                   See how easy it is to place orders with our QR code system
                 </CardDescription>
               </div>
