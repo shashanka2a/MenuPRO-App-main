@@ -77,14 +77,13 @@ export default function DemoPage() {
             <CardContent className="p-0">
               <div className="relative w-full group" style={{ paddingBottom: '56.25%' }}>
                 <iframe
-                  className="absolute top-0 left-0 w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  src="https://www.youtube.com/embed/sUAZhjzIiB4"
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/sUAZhjzIiB4?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
                   title="MenuOS Demo - QR Code Ordering System"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </CardContent>
           </Card>
