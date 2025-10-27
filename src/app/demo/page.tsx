@@ -29,9 +29,11 @@ export default function DemoPage() {
                   Back to Home
                 </Button>
               </Link>
-              <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                Get Started
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" asChild>
+                <Link href="/" className="flex items-center">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
             </div>
           </div>
@@ -454,7 +456,7 @@ export default function DemoPage() {
                   asChild
                 >
                   <Link href="/" className="flex items-center">
-                    Start Free Trial
+                    Get Started
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
