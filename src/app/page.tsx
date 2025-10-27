@@ -28,7 +28,6 @@ export default function Home() {
     <div className="min-h-screen">
       <Header 
         onLaunchApp={() => setShowRestaurant(true)} 
-        onRestaurantSignup={() => setShowRestaurant(true)}
       />
       <main>
         <Hero onLaunchApp={() => setShowRestaurant(true)} />
