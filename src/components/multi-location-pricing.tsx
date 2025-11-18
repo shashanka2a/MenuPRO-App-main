@@ -29,7 +29,9 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
     {
       id: 'starter',
       name: 'Starter',
-      price: formatPrice({ monthly: 19 }),
+      price: billing === 'monthly'
+        ? { value: '$19', period: 'per month', originalValue: null }
+        : { value: '$180', period: 'per year', originalValue: '$225' },
       features: [
         'QR Code Ordering',
         'Digital Menu Management',
@@ -43,7 +45,7 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
       name: 'Pro',
       price: billing === 'monthly'
         ? { value: '$15', period: 'per location/month', originalValue: null }
-        : { value: '$180', period: 'per location/year', originalValue: '$225' },
+        : { value: '$140', period: 'per location/year', originalValue: '$180' },
       features: [
         'Everything in Starter',
         'Centralized Dashboard',
@@ -87,7 +89,7 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
                   : 'text-[#1a1a2e] hover:bg-gray-200'
               }`}
             >
-              Annual <span className="ml-1 text-xs font-semibold">(Save 20%)</span>
+              Annual <span className={`ml-1 text-xs font-semibold ${billing === 'annual' ? 'text-green-200' : 'text-green-600'}`}>(Save 20%)</span>
             </button>
           </div>
         </div>
