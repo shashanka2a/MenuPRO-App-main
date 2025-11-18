@@ -1,8 +1,9 @@
 'use client'
 
 import { Button } from "./ui/button";
-import { Menu, Utensils } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeaderProps {
   onLaunchApp: () => void;
@@ -10,38 +11,50 @@ interface HeaderProps {
 
 export function Header({ onLaunchApp }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <Image
-            src="/menupro-logo.svg"
-            alt="MenuOS Logo"
-            width={40}
-            height={40}
-            className="w-10 h-10"
-          />
-          <h1 className="text-2xl font-bold text-orange-600">MenuOS</h1>
-        </div>
-        
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="text-gray-600 hover:text-orange-600 transition-colors">Features</a>
-          <a href="#pricing" className="text-gray-600 hover:text-orange-600 transition-colors">Pricing</a>
-          <a href="/demo" className="text-gray-600 hover:text-orange-600 transition-colors">Demo</a>
-          <a href="#faq" className="text-gray-600 hover:text-orange-600 transition-colors">FAQ</a>
-          <div className="flex items-center space-x-3">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo - Left */}
+          <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/menupro-logo.svg"
+              alt="MenuOS Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+            <span className="text-2xl font-bold font-sans">
+              <span className="text-[#1a1a2e]">Menu</span>
+              <span className="text-[#FF6B00]">OS</span>
+            </span>
+          </Link>
+          
+          {/* Links - Center */}
+          <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+            <a href="#services" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-colors font-sans font-medium">Features</a>
+            <a href="#pricing" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-colors font-sans font-medium">Pricing</a>
+            <a href="#testimonials" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-colors font-sans font-medium">Testimonials</a>
+          </nav>
+          
+          {/* CTAs - Right */}
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="ghost" 
+              className="text-[#1a1a2e] hover:text-[#FF6B00] hover:bg-transparent font-sans font-medium hidden md:block"
+            >
+              Login
+            </Button>
             <Button 
               onClick={onLaunchApp}
-              variant="outline" 
-              className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+              className="bg-[#FF6B00] hover:bg-[#e55a00] text-white font-sans font-semibold"
             >
               Get Started
             </Button>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-6 w-6 text-[#1a1a2e]" />
+            </Button>
           </div>
-        </nav>
-        
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Menu className="h-6 w-6" />
-        </Button>
+        </div>
       </div>
     </header>
   );

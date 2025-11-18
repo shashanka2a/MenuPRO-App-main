@@ -11,8 +11,8 @@ interface FAQProps {
 
 const faqs = [
   {
-    question: "How does MenuOS work?",
-    answer: "Customers scan a QR code at their table using their smartphone, browse your digital menu, and place orders directly. No need for waiters to take orders - customers order what they want, when they want it."
+    question: "How easy is MenuOS integration?",
+    answer: "MenuOS is designed for easy integration. Simply upload your menu, generate QR codes, and start accepting orders. The entire setup process takes less than 15 minutes with no technical expertise required."
   },
   {
     question: "What are the benefits for customers?",
@@ -44,39 +44,36 @@ export function FAQ({ onLaunchApp }: FAQProps) {
   };
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-orange-50 to-red-50">
+    <section className="py-20 px-4 bg-[#f7f7f7]">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a1a2e] font-sans">
             Common Questions
           </h2>
-          <p className="text-xl text-gray-600">
-            Everything you need to know about MenuOS
-          </p>
         </div>
 
-        {/* FAQ Items */}
+        {/* FAQ Items - Accordion Style */}
         <div className="space-y-4 mb-12">
           {faqs.map((faq, index) => (
-            <Card key={index} className="border border-yellow-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+            <Card key={index} className="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden">
               <CardContent className="p-0">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <span className="text-lg font-medium text-gray-900 pr-4">
+                  <span className="text-lg font-bold text-[#1a1a2e] font-sans pr-4">
                     {faq.question}
                   </span>
                   {openIndex === index ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    <ChevronUp className="w-5 h-5 text-[#1a1a2e] flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-[#1a1a2e] flex-shrink-0" />
                   )}
                 </button>
                 {openIndex === index && (
-                  <div className="px-6 pb-4 border-t border-gray-100">
-                    <p className="text-gray-600 leading-relaxed pt-4">
+                  <div className="px-6 pb-5 border-t border-gray-100">
+                    <p className="text-[#1a1a2e] leading-relaxed pt-4 font-sans">
                       {faq.answer}
                     </p>
                   </div>
@@ -91,13 +88,10 @@ export function FAQ({ onLaunchApp }: FAQProps) {
           <Button
             onClick={onLaunchApp}
             size="lg"
-            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg rounded-full"
+            className="bg-[#FF6B00] hover:bg-[#e55a00] text-white px-10 py-6 text-lg font-sans font-semibold rounded-lg"
           >
-            Get Notified When We Launch
+            Contact Our Team
           </Button>
-          <p className="text-sm text-gray-500 mt-4">
-            Be the first to know when MenuOS is available
-          </p>
         </div>
       </div>
     </section>

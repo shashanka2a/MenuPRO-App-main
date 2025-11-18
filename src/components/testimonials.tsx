@@ -1,40 +1,22 @@
 'use client'
 
 import { Card, CardContent } from "./ui/card";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Restaurant Owner",
+    name: "John Doe",
     restaurant: "Bella Vista Bistro",
-    content: "MenuOS has increased our revenue while reducing operational costs. The $19/month fee is nothing compared to the commission we were paying before!",
-    rating: 5,
-    avatar: "SJ",
-    logo: "🍽️"
+    content: "MenuOS completely transformed our restaurant operations. We've seen a 50% increase in order accuracy and our customers love the convenience of ordering directly from their phones.",
   },
   {
     id: 2,
-    name: "Mike Chen",
-    role: "Restaurant Owner",
+    name: "Sarah Chen",
     restaurant: "Golden Dragon",
-    content: "Since implementing MenuOS, our order accuracy has improved significantly and customer satisfaction is at an all-time high. The analytics help us make better business decisions.",
-    rating: 5,
-    avatar: "MC",
-    logo: "🐉"
+    content: "Since implementing MenuOS, our table turnover has increased significantly. The analytics dashboard helps us make better business decisions and the flat monthly fee means we keep 100% of our revenue.",
   },
-  {
-    id: 3,
-    name: "Emma Williams",
-    role: "Restaurant Owner",
-    restaurant: "The Garden Table",
-    content: "Finally, a solution that doesn't take a cut of our sales! The flat $19/month fee means we keep 100% of our revenue. It's been a game-changer for our business.",
-    rating: 5,
-    avatar: "EW",
-    logo: "🌿"
-  }
 ];
 
 export function Testimonials() {
@@ -61,24 +43,16 @@ export function Testimonials() {
     setIsAutoPlaying(false);
   };
 
-  const goToTestimonial = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
-
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section id="testimonials" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            What Our Customers Say
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#1a1a2e] font-sans">
+            Trusted by Restaurant Owners
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Join restaurants already using MenuOS to transform their business
-          </p>
         </div>
         
-        {/* Carousel */}
+        {/* Horizontal Carousel */}
         <div className="relative">
           <div className="overflow-hidden">
             <div 
@@ -87,23 +61,15 @@ export function Testimonials() {
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <Card className="text-center p-8 border-none shadow-lg bg-white max-w-4xl mx-auto">
-                    <CardContent className="pt-6">
-                      <div className="flex justify-center mb-4">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                        ))}
-                      </div>
-                      <p className="text-lg text-gray-600 mb-6 italic max-w-3xl mx-auto">&ldquo;{testimonial.content}&rdquo;</p>
-                      <div className="flex items-center justify-center">
-                        <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-2xl mr-4">
-                          {testimonial.logo}
-                        </div>
-                        <div className="text-left">
-                          <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                          <p className="text-sm text-gray-600">{testimonial.role}</p>
-                          <p className="text-sm text-orange-600 font-medium">{testimonial.restaurant}</p>
-                        </div>
+                  <Card className="bg-white rounded-lg shadow-lg border-0 max-w-4xl mx-auto">
+                    <CardContent className="p-12">
+                      <p className="text-2xl md:text-3xl text-[#1a1a2e] mb-8 italic font-sans leading-relaxed">
+                        &ldquo;{testimonial.content}&rdquo;
+                      </p>
+                      <div className="text-left">
+                        <p className="font-bold text-xl text-[#1a1a2e] font-sans">
+                          - {testimonial.name}, Owner of {testimonial.restaurant}
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -115,29 +81,16 @@ export function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow border border-gray-200"
           >
-            <ChevronLeft className="w-6 h-6 text-orange-600" />
+            <ChevronLeft className="w-6 h-6 text-[#1a1a2e]" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow border border-gray-200"
           >
-            <ChevronRight className="w-6 h-6 text-orange-600" />
+            <ChevronRight className="w-6 h-6 text-[#1a1a2e]" />
           </button>
-          
-          {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-orange-600' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>
