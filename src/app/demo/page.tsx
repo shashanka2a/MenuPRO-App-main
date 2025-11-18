@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { CheckCircle, X, Clock, DollarSign, Smartphone, QrCode, Upload, TrendingUp, ArrowRight, Users, Shield, Play } from 'lucide-react'
+import { CheckCircle, X, Clock, DollarSign, Smartphone, QrCode, Upload, TrendingUp, ArrowRight, Users, Shield, Play, Settings, Zap, BarChart3, UserPlus, FileText, ShoppingCart } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -20,9 +20,8 @@ export default function DemoPage() {
                 height={40}
                 className="w-10 h-10"
               />
-              <span className="text-2xl font-bold">
-                <span className="text-[#1a1a2e]">Menu</span>
-                <span className="text-[#E67A50]">OS</span>
+              <span className="text-2xl font-bold text-[#1a1a2e]">
+                MenuOS
               </span>
             </Link>
             <div className="flex items-center space-x-6">
@@ -46,7 +45,7 @@ export default function DemoPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section - See in Action */}
         <div className="mb-24">
-          <h1 className="text-5xl md:text-7xl font-bold text-[#1a1a2e] mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1a1a2e] mb-12 text-center">
             See MenuOS in Action
           </h1>
           
@@ -84,7 +83,7 @@ export default function DemoPage() {
             {/* Before Card - Manual Errors */}
             <Card className="bg-[#f9f9f9] border-0 shadow-md">
               <CardContent className="p-8">
-                <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">Manual Errors</h2>
+                <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6">Manual Errors</h2>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <X className="w-6 h-6 text-[#1a1a2e] mr-3 mt-1 flex-shrink-0" />
@@ -109,7 +108,7 @@ export default function DemoPage() {
             {/* After Card - MenuOS Automation */}
             <Card className="bg-white border-t-4 border-[#E67A50] border-0 shadow-md">
               <CardContent className="p-8">
-                <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">MenuOS Automation</h2>
+                <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6">MenuOS Automation</h2>
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <CheckCircle className="w-6 h-6 text-[#E67A50] mr-3 mt-1 flex-shrink-0" fill="#E67A50" />
@@ -136,7 +135,7 @@ export default function DemoPage() {
         {/* Why Restaurants Choose Section */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
+            <h2 className="text-3xl font-bold text-[#1a1a2e] mb-4">
               Why Restaurants Choose MenuOS
             </h2>
           </div>
@@ -144,7 +143,7 @@ export default function DemoPage() {
             <Card className="bg-white border-0 shadow-md rounded-lg">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Clock className="w-8 h-8 text-white" fill="white" />
+                  <Settings className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">Easy Installation</h3>
                 <p className="text-[#1a1a2e] text-base leading-relaxed">
@@ -156,7 +155,7 @@ export default function DemoPage() {
             <Card className="bg-white border-0 shadow-md rounded-lg">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <DollarSign className="w-8 h-8 text-white" fill="white" />
+                  <Shield className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">No Commission Fees</h3>
                 <p className="text-[#1a1a2e] text-base leading-relaxed">
@@ -183,11 +182,11 @@ export default function DemoPage() {
         <div className="mb-24">
           <Card className="bg-white border-0 shadow-md">
             <CardContent className="p-8">
-              <h2 className="text-4xl font-bold text-[#1a1a2e] mb-8 text-center">
+              <h2 className="text-3xl font-bold text-[#1a1a2e] mb-8 text-center">
                 Schedule Your Personal Demo
               </h2>
-              <div className="bg-white rounded-lg p-6">
-                <div className="relative w-full" style={{ paddingBottom: '75%', minHeight: '600px' }}>
+              <div className="bg-white rounded-lg">
+                <div className="relative w-full" style={{ paddingBottom: '60%', minHeight: '500px' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full rounded-lg"
                     src="https://calendly.com/5ha5hank/availability?embed=true&embed_domain=menupro.app&embed_type=Inline"
@@ -204,7 +203,7 @@ export default function DemoPage() {
         {/* How Easy is Integration Section */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
+            <h2 className="text-3xl font-bold text-[#1a1a2e] mb-4">
               How Easy Is MenuOS Integration?
             </h2>
           </div>
@@ -217,7 +216,7 @@ export default function DemoPage() {
               {/* Step 1 */}
               <div className="relative text-center z-10">
                 <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Upload className="w-8 h-8 text-white" fill="white" />
+                  <UserPlus className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Sign Up</h3>
                 <p className="text-[#1a1a2e] text-sm">
@@ -228,7 +227,7 @@ export default function DemoPage() {
               {/* Step 2 */}
               <div className="relative text-center z-10">
                 <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <QrCode className="w-8 h-8 text-white" fill="white" />
+                  <FileText className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Configure Menu</h3>
                 <p className="text-[#1a1a2e] text-sm">
@@ -239,7 +238,7 @@ export default function DemoPage() {
               {/* Step 3 */}
               <div className="relative text-center z-10">
                 <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Smartphone className="w-8 h-8 text-white" fill="white" />
+                  <ShoppingCart className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Start Taking Orders</h3>
                 <p className="text-[#1a1a2e] text-sm">
@@ -250,7 +249,7 @@ export default function DemoPage() {
               {/* Step 4 */}
               <div className="relative text-center z-10">
                 <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <TrendingUp className="w-8 h-8 text-white" fill="white" />
+                  <BarChart3 className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Scale & Optimize</h3>
                 <p className="text-[#1a1a2e] text-sm">
@@ -264,7 +263,7 @@ export default function DemoPage() {
         {/* More Efficient Stats Section */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
+            <h2 className="text-3xl font-bold text-[#1a1a2e] mb-4">
               MenuOS Makes Your Restaurant More Efficient
             </h2>
           </div>
@@ -306,7 +305,7 @@ export default function DemoPage() {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#1a1a2e] text-lg px-8 py-6 font-semibold"
+                  className="border-2 border-white bg-white text-[#1a1a2e] hover:bg-gray-100 text-lg px-8 py-6 font-semibold"
                   asChild
                 >
                   <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center">
@@ -334,9 +333,8 @@ export default function DemoPage() {
                   height={40}
                   className="w-10 h-10"
                 />
-                <span className="text-2xl font-bold">
-                  <span className="text-white">Menu</span>
-                  <span className="text-[#E67A50]">OS</span>
+                <span className="text-2xl font-bold text-white">
+                  MenuOS
                 </span>
               </div>
               <p className="text-white/70 text-sm">
