@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, BarChart3, ArrowRight, Clock, TrendingUp, DollarSign } from 'lucide-react'
+import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, BarChart3, ArrowRight, Clock, TrendingUp, Target, Quote, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -25,11 +25,20 @@ export default function DemoPage() {
               </span>
             </Link>
             
-            {/* Links - Center - Enhanced Contrast */}
+            {/* Links - Center - Enhanced with Underline Hover */}
             <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-              <a href="#services" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-semibold text-base hover:scale-105">Features</a>
-              <a href="#pricing" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-semibold text-base hover:scale-105">Pricing</a>
-              <a href="#testimonials" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-semibold text-base hover:scale-105">Testimonials</a>
+              <a href="#services" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-semibold text-base relative group">
+                Features
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF6B00] transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#pricing" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-semibold text-base relative group">
+                Pricing
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF6B00] transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#testimonials" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-semibold text-base relative group">
+                Testimonials
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF6B00] transition-all duration-300 group-hover:w-full"></span>
+              </a>
             </nav>
             
             {/* CTAs - Right - Enhanced Hierarchy */}
@@ -104,15 +113,26 @@ export default function DemoPage() {
               </Link>
             </Button>
           </div>
+
+          {/* Trusted By Logo Bar */}
+          <div className="mt-10 pt-8 border-t border-gray-200">
+            <p className="text-sm text-gray-500 text-center mb-6 font-medium">Trusted By</p>
+            <div className="flex items-center justify-center gap-12 flex-wrap opacity-60">
+              <div className="text-2xl font-bold text-gray-400">Wendy&apos;s</div>
+              <div className="text-2xl font-bold text-gray-400">Bella Vista</div>
+              <div className="text-2xl font-bold text-gray-400">Golden Dragon</div>
+              <div className="text-2xl font-bold text-gray-400">Tony&apos;s Pizza</div>
+            </div>
+          </div>
         </section>
 
         {/* Before & After Comparison - Enhanced */}
         <section className="py-16">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#1a1a2e] mb-2">
-              Before vs After MenuOS
+            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-3">
+              Stop Guessing, Start Automating
             </h2>
-            <p className="text-gray-600">
+            <p className="text-lg text-gray-600">
               See the transformation in restaurant operations
             </p>
           </div>
@@ -169,7 +189,7 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Key Features - Enhanced */}
+        {/* Key Features - Enhanced with Better Hover */}
         <section className="py-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
@@ -180,7 +200,7 @@ export default function DemoPage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white border border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <Card className="bg-white border-2 border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#FF6B00]">
               <CardContent className="p-10 text-center">
                 <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110">
                   <Settings className="w-8 h-8 text-white" fill="white" />
@@ -192,7 +212,7 @@ export default function DemoPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <Card className="bg-white border-2 border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#FF6B00]">
               <CardContent className="p-10 text-center">
                 <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110">
                   <Shield className="w-8 h-8 text-white" fill="white" />
@@ -204,7 +224,7 @@ export default function DemoPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <Card className="bg-white border-2 border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#FF6B00]">
               <CardContent className="p-10 text-center">
                 <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110">
                   <QrCode className="w-8 h-8 text-white" fill="white" />
@@ -218,7 +238,7 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Integration Steps - Enhanced with Arrows */}
+        {/* Integration Steps - Enhanced with S-Curve */}
         <section className="py-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
@@ -231,12 +251,17 @@ export default function DemoPage() {
           
           <div className="relative">
             <div className="grid md:grid-cols-4 gap-8 relative">
-              {/* Arrow connectors for desktop */}
-              <div className="hidden md:block absolute top-7 left-1/4 right-1/4 h-0.5">
-                <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent opacity-30"></div>
-                <ArrowRight className="absolute right-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-5 h-5 text-[#FF6B00]" />
-                <ArrowRight className="absolute left-1/3 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-5 h-5 text-[#FF6B00]" />
-                <ArrowRight className="absolute left-2/3 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-5 h-5 text-[#FF6B00]" />
+              {/* S-Curve connector for desktop */}
+              <div className="hidden md:block absolute top-8 left-0 right-0 h-1 z-0">
+                <svg className="w-full h-full" viewBox="0 0 1000 10" preserveAspectRatio="none">
+                  <path 
+                    d="M 0 5 Q 250 2, 500 5 T 1000 5" 
+                    stroke="#e5e7eb" 
+                    strokeWidth="2" 
+                    fill="none"
+                    className="opacity-60"
+                  />
+                </svg>
               </div>
               
               {/* Step 1 */}
@@ -310,15 +335,15 @@ export default function DemoPage() {
               <p className="text-gray-600 text-sm">Average table turnover increased by 75%</p>
             </Card>
             <Card className="bg-white border border-gray-200 shadow-md p-8 text-center transition-all duration-300 hover:shadow-lg">
-              <DollarSign className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
+              <Target className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
               <div className="text-6xl font-bold text-[#FF6B00] mb-3">100%</div>
-              <p className="text-xl font-semibold text-[#1a1a2e] mb-2">Revenue Retention</p>
-              <p className="text-gray-600 text-sm">Keep all revenue - no commission fees like DoorDash</p>
+              <p className="text-xl font-semibold text-[#1a1a2e] mb-2">Order Accuracy</p>
+              <p className="text-gray-600 text-sm">Eliminate order mistakes with automated processing</p>
             </Card>
           </div>
         </section>
 
-        {/* Schedule Demo Section - Enhanced */}
+        {/* Schedule Demo Section - Enhanced with Testimonial */}
         <section className="py-16">
           <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-[#1a1a2e] mb-3">
@@ -328,19 +353,40 @@ export default function DemoPage() {
               Book a 15-minute demo with our team to see MenuOS in action
             </p>
           </div>
-          <Card className="bg-white border-2 border-gray-200 shadow-lg max-w-4xl mx-auto">
-            <CardContent className="p-6">
-              <div className="relative w-full" style={{ paddingBottom: '60%', minHeight: '500px' }}>
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
-                  src="https://calendly.com/5ha5hank/availability?embed=true&embed_domain=menupro.app&embed_type=Inline"
-                  title="Schedule Demo with MenuOS Team"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                ></iframe>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Testimonial Column */}
+            <div className="md:col-span-1">
+              <Card className="bg-white border-2 border-gray-200 shadow-md h-full">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <Quote className="w-8 h-8 text-[#FF6B00] mb-4" />
+                  <p className="text-lg text-[#1a1a2e] mb-6 italic leading-relaxed flex-grow">
+                    &ldquo;MenuOS completely transformed our restaurant operations. We&apos;ve seen a 50% increase in order accuracy and our customers love the convenience.&rdquo;
+                  </p>
+                  <div>
+                    <p className="font-bold text-[#1a1a2e]">John Doe</p>
+                    <p className="text-sm text-gray-600">Owner, Bella Vista Bistro</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Calendar Column */}
+            <div className="md:col-span-2">
+              <Card className="bg-white border-2 border-gray-200 shadow-lg">
+                <CardContent className="p-6">
+                  <div className="relative w-full" style={{ paddingBottom: '75%', minHeight: '500px' }}>
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full rounded-lg"
+                      src="https://calendly.com/5ha5hank/availability?embed=true&embed_domain=menupro.app&embed_type=Inline"
+                      title="Schedule Demo with MenuOS Team"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    ></iframe>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </section>
 
         {/* Final CTA Section - Enhanced */}
@@ -353,34 +399,31 @@ export default function DemoPage() {
               <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
                 Join thousands of restaurants already using MenuOS to streamline their operations
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <div className="flex flex-col items-center gap-4">
                 <Button 
-                  className="bg-[#FF6B00] hover:bg-[#e55a00] text-white text-lg px-10 py-7 font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                  asChild
-                >
-                  <Link href="/" className="flex items-center">
-                    Get Started
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-2 border-white bg-white text-[#1a1a2e] hover:bg-gray-100 text-lg px-10 py-7 font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                  className="bg-[#FF6B00] hover:bg-[#e55a00] text-white text-lg px-12 py-7 font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl"
                   asChild
                 >
                   <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    Schedule Demo
+                    <Calendar className="w-5 h-5 mr-2" />
+                    Book a Free Demo
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
+                <Link 
+                  href="/" 
+                  className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+                >
+                  Explore All Features
+                </Link>
               </div>
             </CardContent>
           </Card>
         </section>
       </div>
 
-      {/* Footer - Enhanced */}
-      <footer className="bg-[#1a1a2e] text-white py-12 mt-8">
+      {/* Footer - Enhanced with Navy Background */}
+      <footer className="bg-[#0B224A] text-white py-12 mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-10 mb-10">
             {/* Column 1 - Branding */}
