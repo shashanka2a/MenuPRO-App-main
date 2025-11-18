@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, ArrowUpRight, ArrowRight, Clock, TrendingUp, Target, Quote, Calendar } from 'lucide-react'
+import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, ArrowUpRight, ArrowRight, Clock, TrendingUp, Target, Quote } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -286,21 +286,21 @@ export default function DemoPage() {
                 </div>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-gradient-to-br from-[#1a1a2e] to-[#1f1f3a] border-0 shadow-lg p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <Clock className="w-12 h-12 text-white mx-auto mb-4" />
+              <Clock className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
               <div className="text-6xl font-bold text-white mb-3">50%</div>
-              <p className="text-xl font-semibold text-white mb-2">Faster Order Processing</p>
+              <p className="text-xl font-semibold text-[#FF6B00] mb-2">Faster Order Processing</p>
               <p className="text-white/80 text-sm">Customers place orders 3x faster than traditional methods</p>
             </Card>
             <Card className="bg-gradient-to-br from-[#1a1a2e] to-[#1f1f3a] border-0 shadow-lg p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <TrendingUp className="w-12 h-12 text-white mx-auto mb-4" />
+              <TrendingUp className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
               <div className="text-6xl font-bold text-white mb-3">75%</div>
-              <p className="text-xl font-semibold text-white mb-2">Reduced Wait Times</p>
+              <p className="text-xl font-semibold text-[#FF6B00] mb-2">Reduced Wait Times</p>
               <p className="text-white/80 text-sm">Average table turnover increased by 75%</p>
             </Card>
             <Card className="bg-gradient-to-br from-[#1a1a2e] to-[#1f1f3a] border-0 shadow-lg p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <Target className="w-12 h-12 text-white mx-auto mb-4" />
+              <Target className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
               <div className="text-6xl font-bold text-white mb-3">100%</div>
-              <p className="text-xl font-semibold text-white mb-2">Order Accuracy</p>
+              <p className="text-xl font-semibold text-[#FF6B00] mb-2">Order Accuracy</p>
               <p className="text-white/80 text-sm">Eliminate order mistakes with automated processing</p>
             </Card>
                 </div>
@@ -352,38 +352,7 @@ export default function DemoPage() {
               </div>
         </section>
 
-        {/* Final CTA Section - Enhanced */}
-        <section className="py-16">
-          <Card className="bg-gradient-to-br from-[#1a1a2e] via-[#1f1f3a] to-[#1a1a2e] border-0 shadow-2xl">
-            <CardContent className="p-16 text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
-                Ready to Transform Your Restaurant?
-              </h2>
-              <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Join thousands of restaurants already using MenuOS to streamline their operations
-              </p>
-              <div className="flex flex-col items-center gap-4">
-                <Button 
-                  className="bg-[#FF6B00] hover:bg-[#e55a00] text-white text-lg px-12 py-7 font-bold transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                  asChild
-                >
-                  <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Book a Free Demo
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </Button>
-                <Link 
-                  href="/" 
-                  className="text-white/70 hover:text-white text-sm font-medium transition-colors"
-                >
-                  Explore All Features
-                  </Link>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-      </div>
+        </div>
 
       {/* Footer - Enhanced with Navy Background */}
       <footer className="bg-[#0B224A] text-white py-12 mt-8">

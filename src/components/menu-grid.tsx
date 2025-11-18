@@ -1,5 +1,5 @@
 import { Card, CardContent } from "./ui/card";
-import { QrCode, Clock, BarChart3, Smartphone } from "lucide-react";
+import { QrCode, BarChart2, ClipboardList, CreditCard } from "lucide-react";
 
 const services = [
   {
@@ -12,19 +12,19 @@ const services = [
     id: 2,
     name: "Real-time Analytics",
     description: "Track sales, popular items, and customer behavior with detailed analytics dashboard. Make data-driven decisions for your restaurant.",
-    icon: BarChart3,
+    icon: BarChart2,
   },
   {
     id: 3,
     name: "Order Management",
     description: "Streamline kitchen operations with real-time order tracking and management tools. Reduce errors and improve efficiency.",
-    icon: Clock,
+    icon: ClipboardList,
   },
   {
     id: 4,
     name: "Payment Processing",
     description: "Secure payment processing with multiple payment options and no transaction fees. Keep 100% of your revenue.",
-    icon: Smartphone,
+    icon: CreditCard,
   }
 ];
 
