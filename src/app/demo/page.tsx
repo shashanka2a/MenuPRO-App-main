@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, BarChart3, ArrowRight, Clock, TrendingUp, Target, Quote, Calendar } from 'lucide-react'
+import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, ArrowUpRight, ArrowRight, Clock, TrendingUp, Target, Quote, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -64,7 +64,7 @@ export default function DemoPage() {
         {/* Hero Section - Enhanced */}
         <section className="pt-20 pb-16">
           {/* Back to Home - Reduced Size and Opacity */}
-          <div className="mb-4">
+          <div className="mb-10">
             <Link 
               href="/" 
               className="inline-flex items-center text-[#1a1a2e]/60 hover:text-[#FF6B00] transition-all duration-300 text-sm font-medium group"
@@ -72,34 +72,34 @@ export default function DemoPage() {
               <ArrowLeft className="w-3.5 h-3.5 mr-1.5 group-hover:-translate-x-1 transition-transform" />
               Back to Home
             </Link>
-          </div>
-          
+      </div>
+
           <div className="text-center mb-8">
             <h1 className="text-5xl md:text-6xl font-bold text-[#1a1a2e] mb-4 animate-slide-up">
               See MenuOS in Action
-            </h1>
+          </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Watch how restaurants streamline operations, reduce errors, and boost efficiency with our all-in-one platform
-            </p>
-          </div>
-          
+          </p>
+        </div>
+
           {/* Video Player - Framed in Card */}
           <div className="mb-10">
             <Card className="bg-gray-50 border border-gray-200 shadow-lg overflow-hidden">
-              <CardContent className="p-0">
+            <CardContent className="p-0">
                 <div className="relative w-full" style={{ paddingBottom: '56.25%', maxWidth: '900px', margin: '0 auto' }}>
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/sUAZhjzIiB4?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
-                    title="MenuOS Demo - QR Code Ordering System"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/sUAZhjzIiB4?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
+                  title="MenuOS Demo - QR Code Ordering System"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
           {/* CTA Button - Enhanced */}
           <div className="text-center py-6">
@@ -112,7 +112,7 @@ export default function DemoPage() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
-          </div>
+              </div>
 
           {/* Trusted By Logo Bar */}
           <div className="mt-10 pt-8 border-t border-gray-200">
@@ -122,8 +122,8 @@ export default function DemoPage() {
               <div className="text-2xl font-bold text-gray-400">Bella Vista</div>
               <div className="text-2xl font-bold text-gray-400">Golden Dragon</div>
               <div className="text-2xl font-bold text-gray-400">Tony&apos;s Pizza</div>
-            </div>
-          </div>
+                </div>
+              </div>
         </section>
 
         {/* Before & After Comparison - Enhanced */}
@@ -168,19 +168,19 @@ export default function DemoPage() {
                 <h3 className="text-2xl font-bold text-[#1a1a2e] mb-6">MenuOS Automation</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-[#FF6B00] mr-3 mt-0.5 flex-shrink-0" fill="#FF6B00" />
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="#22C55E" />
                     <span className="text-[#1a1a2e] font-semibold text-base">Automated orders</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-[#FF6B00] mr-3 mt-0.5 flex-shrink-0" fill="#FF6B00" />
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="#22C55E" />
                     <span className="text-[#1a1a2e] font-semibold text-base">Faster service</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-[#FF6B00] mr-3 mt-0.5 flex-shrink-0" fill="#FF6B00" />
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="#22C55E" />
                     <span className="text-[#1a1a2e] font-semibold text-base">Staff efficiency</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle className="w-6 h-6 text-[#FF6B00] mr-3 mt-0.5 flex-shrink-0" fill="#FF6B00" />
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-3 mt-0.5 flex-shrink-0" fill="#22C55E" />
                     <span className="text-[#1a1a2e] font-semibold text-base">Zero commission fees</span>
                   </li>
                 </ul>
@@ -189,56 +189,7 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Key Features - Enhanced with Better Hover */}
-        <section className="py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
-              Why Restaurants Choose MenuOS
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Everything you need to modernize your restaurant operations
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white border-2 border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#FF6B00]">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110">
-                  <Settings className="w-8 h-8 text-white" fill="white" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">Easy Installation</h3>
-                <p className="text-[#1a1a2e] leading-relaxed">
-                  Setup in 15 minutes. Upload your menu, generate QR codes, and start accepting orders immediately.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#FF6B00]">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110">
-                  <Shield className="w-8 h-8 text-white" fill="white" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">No Commission Fees</h3>
-                <p className="text-[#1a1a2e] leading-relaxed">
-                  Unlike DoorDash or Uber Eats, MenuOS charges only $19/month flat rate. Keep 100% of your revenue.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-2 border-gray-200 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-[#FF6B00]">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110">
-                  <QrCode className="w-8 h-8 text-white" fill="white" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">QR Code Ordering</h3>
-                <p className="text-[#1a1a2e] leading-relaxed">
-                  Customers scan QR codes at their table and place orders directly. No app downloads required.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Integration Steps - Enhanced with S-Curve */}
+        {/* Integration Steps - Enhanced with Animations and Better Scale Icon */}
         <section className="py-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
@@ -250,9 +201,9 @@ export default function DemoPage() {
           </div>
           
           <div className="relative">
-            <div className="grid md:grid-cols-4 gap-8 relative">
-              {/* S-Curve connector for desktop */}
-              <div className="hidden md:block absolute top-8 left-0 right-0 h-1 z-0">
+            <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
+              {/* Animated S-Curve connector for desktop */}
+              <div className="hidden md:block absolute top-12 left-0 right-0 h-1 z-0">
                 <svg className="w-full h-full" viewBox="0 0 1000 10" preserveAspectRatio="none">
                   <path 
                     d="M 0 5 Q 250 2, 500 5 T 1000 5" 
@@ -261,49 +212,61 @@ export default function DemoPage() {
                     fill="none"
                     className="opacity-60"
                   />
+                  {/* Animated progress line */}
+                  <path 
+                    d="M 0 5 Q 250 2, 500 5 T 1000 5" 
+                    stroke="#FF6B00" 
+                    strokeWidth="2" 
+                    fill="none"
+                    strokeDasharray="1000"
+                    strokeDashoffset="1000"
+                    className="animate-draw-line"
+                  />
                 </svg>
               </div>
               
-              {/* Step 1 */}
-              <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 hover:scale-110 shadow-lg">
-                  <UserPlus className="w-8 h-8 text-white" fill="white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Sign Up</h3>
-                <p className="text-[#1a1a2e]">
+              {/* Step 1 - Enhanced with staggered animation */}
+              <div className="relative text-center z-10 animate-slide-up">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group">
+                  <UserPlus className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="white" />
+              </div>
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Sign Up</h3>
+                <p className="text-[#1a1a2e] text-sm leading-relaxed">
                   Create your account in minutes
                 </p>
               </div>
 
-              {/* Step 2 */}
-              <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 hover:scale-110 shadow-lg">
-                  <FileText className="w-8 h-8 text-white" fill="white" />
+              {/* Step 2 - Enhanced with staggered animation */}
+              <div className="relative text-center z-10 animate-slide-up-delay">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group">
+                  <FileText className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Configure Menu</h3>
-                <p className="text-[#1a1a2e]">
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Configure Menu</h3>
+                <p className="text-[#1a1a2e] text-sm leading-relaxed">
                   Upload your menu and generate QR codes
                 </p>
               </div>
 
-              {/* Step 3 */}
-              <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 hover:scale-110 shadow-lg">
-                  <ShoppingCart className="w-8 h-8 text-white" fill="white" />
+              {/* Step 3 - Enhanced with staggered animation */}
+              <div className="relative text-center z-10 animate-slide-up-delay-2">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group">
+                  <ShoppingCart className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="white" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Start Taking Orders</h3>
-                <p className="text-[#1a1a2e]">
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Start Taking Orders</h3>
+                <p className="text-[#1a1a2e] text-sm leading-relaxed">
                   Customers scan and order instantly
                 </p>
               </div>
 
-              {/* Step 4 */}
-              <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-5 transition-transform duration-300 hover:scale-110 shadow-lg">
-                  <BarChart3 className="w-8 h-8 text-white" fill="white" />
+              {/* Step 4 - Enhanced with better scale icon and animation */}
+              <div className="relative text-center z-10 animate-slide-up-delay-2">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group relative">
+                  <ArrowUpRight className="w-10 h-10 text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" fill="white" strokeWidth={2.5} />
+                  {/* Pulse effect on hover */}
+                  <div className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Scale & Optimize</h3>
-                <p className="text-[#1a1a2e]">
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Scale & Optimize</h3>
+                <p className="text-[#1a1a2e] text-sm leading-relaxed">
                   Monitor sales and optimize operations
                 </p>
               </div>
@@ -311,36 +274,36 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Stats Section - Enhanced */}
+        {/* Stats Section - Enhanced with Navy Blue Background */}
         <section className="py-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
-              MenuOS Makes Your Restaurant More Efficient
+                MenuOS Makes Your Restaurant More Efficient
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Proven results from restaurants using our platform
-            </p>
-          </div>
+                Proven results from restaurants using our platform
+                  </p>
+                </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white border border-gray-200 shadow-md p-8 text-center transition-all duration-300 hover:shadow-lg">
-              <Clock className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
-              <div className="text-6xl font-bold text-[#FF6B00] mb-3">50%</div>
-              <p className="text-xl font-semibold text-[#1a1a2e] mb-2">Faster Order Processing</p>
-              <p className="text-gray-600 text-sm">Customers place orders 3x faster than traditional methods</p>
+            <Card className="bg-gradient-to-br from-[#1a1a2e] to-[#1f1f3a] border-0 shadow-lg p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <Clock className="w-12 h-12 text-white mx-auto mb-4" />
+              <div className="text-6xl font-bold text-white mb-3">50%</div>
+              <p className="text-xl font-semibold text-white mb-2">Faster Order Processing</p>
+              <p className="text-white/80 text-sm">Customers place orders 3x faster than traditional methods</p>
             </Card>
-            <Card className="bg-white border border-gray-200 shadow-md p-8 text-center transition-all duration-300 hover:shadow-lg">
-              <TrendingUp className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
-              <div className="text-6xl font-bold text-[#FF6B00] mb-3">75%</div>
-              <p className="text-xl font-semibold text-[#1a1a2e] mb-2">Reduced Wait Times</p>
-              <p className="text-gray-600 text-sm">Average table turnover increased by 75%</p>
+            <Card className="bg-gradient-to-br from-[#1a1a2e] to-[#1f1f3a] border-0 shadow-lg p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <TrendingUp className="w-12 h-12 text-white mx-auto mb-4" />
+              <div className="text-6xl font-bold text-white mb-3">75%</div>
+              <p className="text-xl font-semibold text-white mb-2">Reduced Wait Times</p>
+              <p className="text-white/80 text-sm">Average table turnover increased by 75%</p>
             </Card>
-            <Card className="bg-white border border-gray-200 shadow-md p-8 text-center transition-all duration-300 hover:shadow-lg">
-              <Target className="w-12 h-12 text-[#FF6B00] mx-auto mb-4" />
-              <div className="text-6xl font-bold text-[#FF6B00] mb-3">100%</div>
-              <p className="text-xl font-semibold text-[#1a1a2e] mb-2">Order Accuracy</p>
-              <p className="text-gray-600 text-sm">Eliminate order mistakes with automated processing</p>
+            <Card className="bg-gradient-to-br from-[#1a1a2e] to-[#1f1f3a] border-0 shadow-lg p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <Target className="w-12 h-12 text-white mx-auto mb-4" />
+              <div className="text-6xl font-bold text-white mb-3">100%</div>
+              <p className="text-xl font-semibold text-white mb-2">Order Accuracy</p>
+              <p className="text-white/80 text-sm">Eliminate order mistakes with automated processing</p>
             </Card>
-          </div>
+                </div>
         </section>
 
         {/* Schedule Demo Section - Enhanced with Testimonial */}
@@ -351,8 +314,8 @@ export default function DemoPage() {
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Book a 15-minute demo with our team to see MenuOS in action
-            </p>
-          </div>
+                  </p>
+                </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Testimonial Column */}
             <div className="md:col-span-1">
@@ -362,13 +325,13 @@ export default function DemoPage() {
                   <p className="text-lg text-[#1a1a2e] mb-6 italic leading-relaxed flex-grow">
                     &ldquo;MenuOS completely transformed our restaurant operations. We&apos;ve seen a 50% increase in order accuracy and our customers love the convenience.&rdquo;
                   </p>
-                  <div>
+                      <div>
                     <p className="font-bold text-[#1a1a2e]">John Doe</p>
                     <p className="text-sm text-gray-600">Owner, Bella Vista Bistro</p>
                   </div>
                 </CardContent>
               </Card>
-            </div>
+                      </div>
             
             {/* Calendar Column */}
             <div className="md:col-span-2">
@@ -382,11 +345,11 @@ export default function DemoPage() {
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     ></iframe>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+              </div>
         </section>
 
         {/* Final CTA Section - Enhanced */}
@@ -415,7 +378,7 @@ export default function DemoPage() {
                   className="text-white/70 hover:text-white text-sm font-medium transition-colors"
                 >
                   Explore All Features
-                </Link>
+                  </Link>
               </div>
             </CardContent>
           </Card>
