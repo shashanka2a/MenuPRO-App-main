@@ -1,250 +1,195 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { CheckCircle, Zap, Clock, DollarSign, Smartphone, QrCode, Upload, TrendingUp, ArrowRight, Star, Users, Shield, Sparkles } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { CheckCircle, X, Clock, DollarSign, Smartphone, QrCode, Upload, TrendingUp, ArrowRight, Users, Shield, Play } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function DemoPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-50">
-      {/* Enhanced Header */}
-      <div className="bg-white/80 backdrop-blur-md shadow-sm border-b border-orange-100 sticky top-0 z-50">
+    <div className="min-h-screen bg-white font-sans">
+      {/* Navigation Bar */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3 group">
+            <Link href="/" className="flex items-center space-x-3">
               <Image
                 src="/menupro-logo.svg"
                 alt="MenuOS Logo"
                 width={40}
                 height={40}
-                className="w-10 h-10 group-hover:scale-105 transition-transform duration-300"
+                className="w-10 h-10"
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">MenuOS</span>
+              <span className="text-2xl font-bold">
+                <span className="text-[#1a1a2e]">Menu</span>
+                <span className="text-[#E67A50]">OS</span>
+              </span>
             </Link>
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <Button variant="ghost" className="text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-all duration-300">
-                  Back to Home
-                </Button>
+            <div className="flex items-center space-x-6">
+              <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-colors font-medium">
+                Home
               </Link>
-              <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105" asChild>
-                <Link href="/" className="flex items-center">
-                  Get Started
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
+              <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-colors font-medium">
+                Features
+              </Link>
+              <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-colors font-medium">
+                Pricing
+              </Link>
+              <Button className="bg-[#E67A50] hover:bg-[#d4693f] text-white font-semibold px-6" asChild>
+                <Link href="/">Get Started</Link>
               </Button>
             </div>
           </div>
         </div>
-      </div>
+      </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Enhanced Hero Section */}
-        <div className="text-center mb-20">
-          <Badge className="mb-6 bg-gradient-to-r from-orange-100 to-red-100 text-orange-800 border-orange-200 px-4 py-2 text-sm font-medium">
-            <Sparkles className="w-4 h-4 mr-2" />
-            Live Demo
-          </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-            See MenuOS in{' '}
-            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-              Action
-            </span>
+        {/* Hero Section - See in Action */}
+        <div className="mb-24">
+          <h1 className="text-5xl md:text-7xl font-bold text-[#1a1a2e] mb-12 text-center">
+            See MenuOS in Action
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Watch how Wendy&apos;s and other restaurants are revolutionizing their ordering experience with MenuOS.  
-            <span className="text-orange-600 font-semibold">No more waiting in lines</span>, 
-            <span className="text-red-600 font-semibold">no more commission fees</span>, 
-            just seamless digital ordering.
-          </p>
+          
+          {/* Video Player */}
+          <div className="mb-8">
+            <div className="relative w-full rounded-lg overflow-hidden shadow-lg" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/sUAZhjzIiB4?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
+                title="MenuOS Demo - QR Code Ordering System"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+
+          {/* Full-width CTA Button */}
+          <div className="px-4">
+            <Button 
+              className="w-full bg-[#E67A50] hover:bg-[#d4693f] text-white text-lg font-semibold py-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+              asChild
+            >
+              <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                Schedule Your Demo
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
 
-        {/* Enhanced Video Section */}
+        {/* How Wendy's Orders Section - Before & After */}
         <div className="mb-24">
-          <Card className="overflow-hidden shadow-2xl border-0 bg-gradient-to-br from-white to-orange-50">
-            <CardHeader className="bg-gradient-to-r from-orange-500 to-red-500 text-white relative overflow-hidden">
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="relative z-10">
-                <CardTitle className="text-3xl flex items-center justify-center">
-                  <Smartphone className="w-8 h-8 mr-4" />
-                  MenuOS Demo Video
-                </CardTitle>
-                <CardDescription className="text-orange-100 text-lg mt-2 text-center">
-                  See how easy it is to place orders with our QR code system
-                </CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent className="p-0">
-              <div className="relative w-full group" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/sUAZhjzIiB4?rel=0&modestbranding=1&showinfo=0&enablejsapi=1"
-                  title="MenuOS Demo - QR Code Ordering System"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Before Card - Manual Errors */}
+            <Card className="bg-[#f9f9f9] border-0 shadow-md">
+              <CardContent className="p-8">
+                <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">Manual Errors</h2>
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <X className="w-6 h-6 text-[#1a1a2e] mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-[#1a1a2e] text-lg">Order mistakes</span>
+                  </li>
+                  <li className="flex items-start">
+                    <X className="w-6 h-6 text-[#1a1a2e] mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-[#1a1a2e] text-lg">Slow turnover</span>
+                  </li>
+                  <li className="flex items-start">
+                    <X className="w-6 h-6 text-[#1a1a2e] mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-[#1a1a2e] text-lg">Staff overwhelmed</span>
+                  </li>
+                  <li className="flex items-start">
+                    <X className="w-6 h-6 text-[#1a1a2e] mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-[#1a1a2e] text-lg">High commission fees</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* After Card - MenuOS Automation */}
+            <Card className="bg-white border-t-4 border-[#E67A50] border-0 shadow-md">
+              <CardContent className="p-8">
+                <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">MenuOS Automation</h2>
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-[#E67A50] mr-3 mt-1 flex-shrink-0" fill="#E67A50" />
+                    <span className="text-[#1a1a2e] text-lg font-semibold">Automated orders</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-[#E67A50] mr-3 mt-1 flex-shrink-0" fill="#E67A50" />
+                    <span className="text-[#1a1a2e] text-lg font-semibold">Faster service</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-[#E67A50] mr-3 mt-1 flex-shrink-0" fill="#E67A50" />
+                    <span className="text-[#1a1a2e] text-lg font-semibold">Staff efficiency</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-6 h-6 text-[#E67A50] mr-3 mt-1 flex-shrink-0" fill="#E67A50" />
+                    <span className="text-[#1a1a2e] text-lg font-semibold">Zero commission fees</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
-        {/* Enhanced Wendy's Case Study */}
+        {/* Why Restaurants Choose Section */}
         <div className="mb-24">
-          <Card className="shadow-2xl border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
-            <CardHeader className="text-center pb-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-6">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
-                How Wendy&apos;s Orders Became Easier with MenuOS
-              </CardTitle>
-              <CardDescription className="text-xl text-gray-600">
-                Real results from restaurants using our platform
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="px-8 pb-8">
-              <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-6">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                      <div className="w-6 h-6 bg-red-500 rounded-full"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Before MenuOS</h3>
-                  </div>
-                  <ul className="space-y-4">
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-red-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg">Long wait times during peak hours</span>
-                    </li>
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-red-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg">Staff overwhelmed with taking orders</span>
-                    </li>
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-red-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg">High commission fees from third-party apps</span>
-                    </li>
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-red-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg">Limited menu visibility and customization</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-6">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                      <div className="w-6 h-6 bg-green-500 rounded-full"></div>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">After MenuOS</h3>
-                  </div>
-                  <ul className="space-y-4">
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-green-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg font-semibold">50% faster order processing</span>
-                    </li>
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-green-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg font-semibold">Staff can focus on food preparation</span>
-                    </li>
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-green-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg font-semibold">Zero commission fees - keep 100% of revenue</span>
-                    </li>
-                    <li className="flex items-start group">
-                      <div className="w-6 h-6 bg-green-500 rounded-full mt-1 mr-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"></div>
-                      <span className="text-gray-700 text-lg font-semibold">Full control over menu and pricing</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Enhanced Benefits Grid */}
-        <div className="mb-24">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
               Why Restaurants Choose MenuOS
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join thousands of restaurants that have transformed their operations with MenuOS
-            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-orange-50 group">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Clock className="w-10 h-10 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Setup in 15 Minutes</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Upload your menu, generate QR codes, and start accepting orders immediately. 
-                No complex setup or technical knowledge required.
-              </p>
-              <div className="mt-6 p-3 bg-green-50 rounded-xl border border-green-200">
-                <p className="text-green-700 font-medium flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 mr-2" />
-                  Lightning-fast setup
+            <Card className="bg-white border-0 shadow-md rounded-lg">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Clock className="w-8 h-8 text-white" fill="white" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">Easy Installation</h3>
+                <p className="text-[#1a1a2e] text-base leading-relaxed">
+                  Setup in 15 minutes. Upload your menu, generate QR codes, and start accepting orders immediately.
                 </p>
-              </div>
+              </CardContent>
             </Card>
-            <Card className="text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-green-50 group">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <DollarSign className="w-10 h-10 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">No Commission Fees</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Unlike DoorDash (30% fees) or Uber Eats (25% fees), MenuOS charges only 
-                $19/month flat rate. Keep 100% of your revenue.
-              </p>
-              <div className="mt-6 p-3 bg-green-50 rounded-xl border border-green-200">
-                <p className="text-green-700 font-medium flex items-center justify-center">
-                  <Shield className="w-5 h-5 mr-2" />
-                  Keep all profits
+
+            <Card className="bg-white border-0 shadow-md rounded-lg">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <DollarSign className="w-8 h-8 text-white" fill="white" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">No Commission Fees</h3>
+                <p className="text-[#1a1a2e] text-base leading-relaxed">
+                  Unlike DoorDash or Uber Eats, MenuOS charges only $19/month flat rate. Keep 100% of your revenue.
                 </p>
-              </div>
+              </CardContent>
             </Card>
-            <Card className="text-center p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-blue-50 group">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <QrCode className="w-10 h-10 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">QR Code Ordering</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Customers scan QR codes at their table, browse your menu, and place orders 
-                directly. No app downloads required.
-              </p>
-              <div className="mt-6 p-3 bg-green-50 rounded-xl border border-green-200">
-                <p className="text-green-700 font-medium flex items-center justify-center">
-                  <Smartphone className="w-5 h-5 mr-2" />
-                  No app required
+
+            <Card className="bg-white border-0 shadow-md rounded-lg">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <QrCode className="w-8 h-8 text-white" fill="white" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">QR Code Ordering</h3>
+                <p className="text-[#1a1a2e] text-base leading-relaxed">
+                  Customers scan QR codes at their table and place orders directly. No app downloads required.
                 </p>
-              </div>
+              </CardContent>
             </Card>
           </div>
         </div>
 
-        {/* Calendly Demo Scheduling Section */}
+        {/* Schedule Personal Demo Section */}
         <div className="mb-24">
-          <Card className="shadow-2xl border-0 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
-            <CardHeader className="text-center pb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-6">
-                <Users className="w-10 h-10 text-white" />
-              </div>
-              <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
+          <Card className="bg-white border-0 shadow-md">
+            <CardContent className="p-8">
+              <h2 className="text-4xl font-bold text-[#1a1a2e] mb-8 text-center">
                 Schedule Your Personal Demo
-              </CardTitle>
-              <CardDescription className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Book a 15-minute demo with our team to see MenuOS in action and get your questions answered
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="px-8 pb-8">
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
+              </h2>
+              <div className="bg-white rounded-lg p-6">
                 <div className="relative w-full" style={{ paddingBottom: '75%', minHeight: '600px' }}>
                   <iframe
-                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                    className="absolute top-0 left-0 w-full h-full rounded-lg"
                     src="https://calendly.com/5ha5hank/availability?embed=true&embed_domain=menupro.app&embed_type=Inline"
                     title="Schedule Demo with MenuOS Team"
                     frameBorder="0"
@@ -252,276 +197,195 @@ export default function DemoPage() {
                   ></iframe>
                 </div>
               </div>
-              <div className="mt-8 text-center">
-                <p className="text-gray-600 text-lg mb-4">
-                  Can&apos;t find a time that works? 
-                  <a 
-                    href="https://calendly.com/5ha5hank/availability" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-orange-600 hover:text-orange-700 font-semibold ml-1"
-                  >
-                    View all available times
-                  </a>
-                </p>
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    Free consultation
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    15-minute demo
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    No commitment required
-                  </div>
-                </div>
-              </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Enhanced Integration Steps Flow */}
+        {/* How Easy is Integration Section */}
         <div className="mb-24">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
               How Easy Is MenuOS Integration?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Get your restaurant up and running with MenuOS in just 4 simple steps. 
-              <span className="text-orange-600 font-semibold">No technical expertise required!</span>
-            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Step 1 */}
-            <Card className="relative p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-orange-50 group">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  1
+          <div className="relative">
+            <div className="grid md:grid-cols-4 gap-8 relative">
+              {/* Dashed connecting line for desktop */}
+              <div className="hidden md:block absolute top-8 left-16 right-16 h-0.5 border-t-2 border-dashed border-gray-300"></div>
+              
+              {/* Step 1 */}
+              <div className="relative text-center z-10">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Upload className="w-8 h-8 text-white" fill="white" />
                 </div>
-              </div>
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4 group-hover:scale-110 transition-transform duration-300">
-                <Upload className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Upload Your Menu</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Upload PDF or photos. AI extracts items and prices automatically.
-              </p>
-              <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-green-700 text-xs font-medium flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  AI-powered parsing
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Sign Up</h3>
+                <p className="text-[#1a1a2e] text-sm">
+                  Create your account in minutes
                 </p>
               </div>
-            </Card>
 
-            {/* Step 2 */}
-            <Card className="relative p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-blue-50 group">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  2
+              {/* Step 2 */}
+              <div className="relative text-center z-10">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <QrCode className="w-8 h-8 text-white" fill="white" />
                 </div>
-              </div>
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4 group-hover:scale-110 transition-transform duration-300">
-                <QrCode className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Generate QR Codes</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                System creates unique QR codes for each table instantly.
-              </p>
-              <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-green-700 text-xs font-medium flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  Instant generation
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Configure Menu</h3>
+                <p className="text-[#1a1a2e] text-sm">
+                  Upload your menu and generate QR codes
                 </p>
               </div>
-            </Card>
 
-            {/* Step 3 */}
-            <Card className="relative p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-purple-50 group">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  3
+              {/* Step 3 */}
+              <div className="relative text-center z-10">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Smartphone className="w-8 h-8 text-white" fill="white" />
                 </div>
-              </div>
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4 group-hover:scale-110 transition-transform duration-300">
-                <Smartphone className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Start Taking Orders</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Customers scan and order. Orders appear on your dashboard immediately.
-              </p>
-              <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-green-700 text-xs font-medium flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  Real-time orders
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Start Taking Orders</h3>
+                <p className="text-[#1a1a2e] text-sm">
+                  Customers scan and order instantly
                 </p>
               </div>
-            </Card>
 
-            {/* Step 4 */}
-            <Card className="relative p-6 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-gradient-to-br from-white to-green-50 group">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  4
+              {/* Step 4 */}
+              <div className="relative text-center z-10">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                  <TrendingUp className="w-8 h-8 text-white" fill="white" />
                 </div>
-              </div>
-              <div className="w-16 h-16 bg-gradient-to-r from-green-100 to-green-200 rounded-2xl flex items-center justify-center mx-auto mb-4 mt-4 group-hover:scale-110 transition-transform duration-300">
-                <TrendingUp className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Scale & Optimize</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Monitor sales, update menus, and optimize with analytics.
-              </p>
-              <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-green-700 text-xs font-medium flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  Advanced analytics
+                <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Scale & Optimize</h3>
+                <p className="text-[#1a1a2e] text-sm">
+                  Monitor sales and optimize operations
                 </p>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
 
-        {/* Enhanced Efficiency Assertions */}
+        {/* More Efficient Stats Section */}
         <div className="mb-24">
-          <Card className="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 border-0 shadow-2xl overflow-hidden">
-            <CardHeader className="text-center pb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl mb-6">
-                <TrendingUp className="w-10 h-10 text-white" />
-              </div>
-              <CardTitle className="text-4xl font-bold text-gray-900 mb-4">
-                MenuOS Makes Your Restaurant More Efficient
-              </CardTitle>
-              <CardDescription className="text-xl text-gray-600">
-                Proven results from restaurants using our platform
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="px-8 pb-8">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div className="text-center p-6 bg-white/60 rounded-2xl hover:bg-white/80 transition-all duration-300 hover:scale-105">
-                  <div className="text-5xl font-bold text-green-600 mb-3">50%</div>
-                  <p className="text-gray-800 font-bold text-lg mb-2">Faster Order Processing</p>
-                  <p className="text-gray-600">
-                    Customers place orders 3x faster than traditional methods
-                  </p>
-                </div>
-                <div className="text-center p-6 bg-white/60 rounded-2xl hover:bg-white/80 transition-all duration-300 hover:scale-105">
-                  <div className="text-5xl font-bold text-blue-600 mb-3">75%</div>
-                  <p className="text-gray-800 font-bold text-lg mb-2">Reduced Wait Times</p>
-                  <p className="text-gray-600">
-                    Average table turnover increased by 75%
-                  </p>
-                </div>
-                <div className="text-center p-6 bg-white/60 rounded-2xl hover:bg-white/80 transition-all duration-300 hover:scale-105">
-                  <div className="text-5xl font-bold text-purple-600 mb-3">90%</div>
-                  <p className="text-gray-800 font-bold text-lg mb-2">Staff Efficiency Gain</p>
-                  <p className="text-gray-600">
-                    Staff can focus on food prep instead of taking orders
-                  </p>
-                </div>
-                <div className="text-center p-6 bg-white/60 rounded-2xl hover:bg-white/80 transition-all duration-300 hover:scale-105">
-                  <div className="text-5xl font-bold text-orange-600 mb-3">100%</div>
-                  <p className="text-gray-800 font-bold text-lg mb-2">Revenue Retention</p>
-                  <p className="text-gray-600">
-                    Keep all revenue - no commission fees like DoorDash
-                  </p>
-                </div>
-                <div className="text-center p-6 bg-white/60 rounded-2xl hover:bg-white/80 transition-all duration-300 hover:scale-105">
-                  <div className="text-5xl font-bold text-red-600 mb-3">15min</div>
-                  <p className="text-gray-800 font-bold text-lg mb-2">Setup Time</p>
-                  <p className="text-gray-600">
-                    From signup to first order in under 15 minutes
-                  </p>
-                </div>
-                <div className="text-center p-6 bg-white/60 rounded-2xl hover:bg-white/80 transition-all duration-300 hover:scale-105">
-                  <div className="text-5xl font-bold text-indigo-600 mb-3">24/7</div>
-                  <p className="text-gray-800 font-bold text-lg mb-2">Order Management</p>
-                  <p className="text-gray-600">
-                    Update menus, track sales, manage orders anytime
-                  </p>
-                </div>
-              </div>
-              
-              <div className="bg-white/80 rounded-2xl p-8 border border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center">
-                  <Star className="w-6 h-6 text-yellow-500 mr-3" />
-                  Real Restaurant Testimonials
-                </h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-4">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4">
-                        <span className="text-white font-bold text-lg">S</span>
-                      </div>
-                      <div>
-                        <p className="font-bold text-gray-900">Sarah Chen</p>
-                        <p className="text-gray-600">Owner, Golden Dragon</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 text-lg italic leading-relaxed">
-                      &ldquo;MenuOS saved us 2 hours daily on order taking. Our staff can now focus 
-                      on what matters - making great food.&rdquo;
-                    </p>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                        <span className="text-white font-bold text-lg">M</span>
-                      </div>
-                      <div>
-                        <p className="font-bold text-gray-900">Mike Rodriguez</p>
-                        <p className="text-gray-600">Manager, Tony&apos;s Pizza</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 text-lg italic leading-relaxed">
-                      &ldquo;We increased our table turnover by 75% and eliminated order errors. 
-                      Best $19 we spend monthly.&rdquo;
-                    </p>
-                  </div>
-                </div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
+              MenuOS Makes Your Restaurant More Efficient
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-6xl font-bold text-[#E67A50] mb-4">50%</div>
+              <p className="text-[#1a1a2e] text-lg font-normal">Faster Order Processing</p>
+            </div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-[#E67A50] mb-4">75%</div>
+              <p className="text-[#1a1a2e] text-lg font-normal">Reduced Wait Times</p>
+            </div>
+            <div className="text-center">
+              <div className="text-6xl font-bold text-[#E67A50] mb-4">100%</div>
+              <p className="text-[#1a1a2e] text-lg font-normal">Revenue Retention</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Final CTA Section */}
+        <div className="mb-24">
+          <Card className="bg-[#1a1a2e] border-0">
+            <CardContent className="p-16 text-center">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Restaurant?
+              </h2>
+              <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Join thousands of restaurants already using MenuOS to streamline their operations
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button 
+                  className="bg-[#E67A50] hover:bg-[#d4693f] text-white text-lg px-8 py-6 font-semibold"
+                  asChild
+                >
+                  <Link href="/" className="flex items-center">
+                    Get Started
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#1a1a2e] text-lg px-8 py-6 font-semibold"
+                  asChild
+                >
+                  <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    Schedule Demo
+                    <Users className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
               </div>
             </CardContent>
           </Card>
         </div>
+      </div>
 
-        {/* Minimal Footer */}
-        <footer className="bg-white border-t border-gray-200 mt-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              {/* Branding */}
-              <div className="flex items-center space-x-3 mb-6 md:mb-0">
+      {/* Footer */}
+      <footer className="bg-[#1a1a2e] text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            {/* Column 1 - Branding */}
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
                 <Image
                   src="/menupro-logo.svg"
                   alt="MenuOS Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
                 />
-                <span className="text-xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">MenuOS</span>
+                <span className="text-2xl font-bold">
+                  <span className="text-white">Menu</span>
+                  <span className="text-[#E67A50]">OS</span>
+                </span>
               </div>
-              
-              {/* Social Links */}
-              <div className="flex items-center space-x-6">
+              <p className="text-white/70 text-sm">
+                The best restaurant CMS for digital menus and QR ordering.
+              </p>
+            </div>
+
+            {/* Column 2 - Product */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Product</h3>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Features</Link></li>
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Pricing</Link></li>
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Demo</Link></li>
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Integrations</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3 - Company */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">About</Link></li>
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Blog</Link></li>
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Careers</Link></li>
+                <li><Link href="/" className="text-white/70 hover:text-white text-sm">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 4 - Social */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Follow Us</h3>
+              <div className="flex space-x-4">
                 <a 
                   href="https://instagram.com/menuos.app" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-pink-500 transition-colors duration-300"
+                  className="text-white/70 hover:text-white transition-colors"
                   aria-label="Follow us on Instagram"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348zm7.718 0c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348z"/>
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
                 </a>
                 <a 
                   href="https://x.com/menuos.app" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-black transition-colors duration-300"
+                  className="text-white/70 hover:text-white transition-colors"
                   aria-label="Follow us on X (Twitter)"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -532,7 +396,7 @@ export default function DemoPage() {
                   href="https://linkedin.com/company/menuos-app" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-600 transition-colors duration-300"
+                  className="text-white/70 hover:text-white transition-colors"
                   aria-label="Follow us on LinkedIn"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -541,16 +405,16 @@ export default function DemoPage() {
                 </a>
               </div>
             </div>
-            
-            {/* Copyright */}
-            <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-              <p className="text-gray-500 text-sm">
-                © 2024 MenuOS. All rights reserved.
-              </p>
-            </div>
           </div>
-        </footer>
-      </div>
+          
+          {/* Copyright */}
+          <div className="border-t border-white/20 pt-8 text-center">
+            <p className="text-white/70 text-sm">
+              © 2024 MenuOS. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
