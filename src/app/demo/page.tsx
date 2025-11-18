@@ -1,9 +1,172 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, FileText, ShoppingCart, ArrowUpRight, ArrowRight, Clock, TrendingUp, Target, Quote } from 'lucide-react'
+import { CheckCircle, X, ArrowLeft, Settings, Shield, QrCode, UserPlus, TrendingUp, ArrowRight, Clock, Target, Quote, Menu, Package } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+
+// Integration Steps Component with Scroll Animation
+function IntegrationStepsSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [lineProgress, setLineProgress] = useState(0)
+
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true)
+            // Animate line progress smoothly
+            let progress = 0
+            intervalId = setInterval(() => {
+              progress += 1.5
+              if (progress >= 100) {
+                if (intervalId) clearInterval(intervalId)
+                setLineProgress(100)
+              } else {
+                setLineProgress(progress)
+              }
+            }, 16) // ~60fps animation
+          }
+        })
+      },
+      { threshold: 0.2, rootMargin: '-50px' }
+    )
+
+    const currentRef = sectionRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId)
+      }
+      if (currentRef) {
+        observer.unobserve(currentRef)
+      }
+    }
+  }, [isVisible])
+
+  // Calculate path length for 3 steps (ending before Scale & Optimize)
+  // The line should connect steps 1, 2, and 3, so it's about 75% of the full width
+  const linePath = "M 50 40 Q 250 20, 500 40 T 750 40"
+  const lineLength = 750 // Approximate length for 3 steps
+
+  return (
+    <section ref={sectionRef} className="py-16">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
+          How Easy Is MenuOS Integration?
+        </h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Get started in four simple steps
+        </p>
+      </div>
+      
+      <div className="relative">
+        <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
+          {/* Animated connector line - starts from Sign Up, ends before Scale & Optimize */}
+          <div className="hidden md:block absolute top-10 left-[12.5%]" style={{ width: '62.5%', height: '80px', zIndex: 0 }}>
+            <svg className="w-full h-full" viewBox="0 0 750 80" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+              {/* Background line - subtle guide */}
+              <path 
+                d={linePath}
+                stroke="#e5e7eb" 
+                strokeWidth="2.5" 
+                fill="none"
+                strokeLinecap="round"
+                className="opacity-30"
+              />
+              {/* Animated progress line with glow effect */}
+              <path 
+                d={linePath}
+                stroke="#FF6B00" 
+                strokeWidth="3.5" 
+                fill="none"
+                strokeLinecap="round"
+                strokeDasharray={lineLength}
+                strokeDashoffset={lineLength - (lineLength * lineProgress / 100)}
+                style={{
+                  transition: 'stroke-dashoffset 0.05s linear',
+                  filter: 'drop-shadow(0 0 6px rgba(255, 107, 0, 0.6))',
+                  opacity: isVisible ? 1 : 0
+                }}
+              />
+              {/* Animated dot at the end of the line */}
+              {lineProgress > 0 && (
+                <circle
+                  cx={50 + (lineLength * lineProgress / 100) * 0.93}
+                  cy={40}
+                  r="6"
+                  fill="#FF6B00"
+                  style={{
+                    filter: 'drop-shadow(0 0 8px rgba(255, 107, 0, 0.8))',
+                    transition: 'opacity 0.2s ease-out',
+                    opacity: isVisible ? 1 : 0
+                  }}
+                />
+              )}
+            </svg>
+          </div>
+          
+          {/* Step 1 - Sign Up */}
+          <div className={`relative text-center z-10 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+            <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group relative">
+              <UserPlus className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+              <div className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
+            </div>
+            <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Sign Up</h3>
+            <p className="text-[#1a1a2e] text-sm leading-relaxed">
+              Create your account in minutes
+            </p>
+          </div>
+
+          {/* Step 2 - Configure Menu */}
+          <div className={`relative text-center z-10 ${isVisible ? 'animate-slide-up-delay' : 'opacity-0'}`}>
+            <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group relative">
+              <Menu className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+              <div className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
+            </div>
+            <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Configure Menu</h3>
+            <p className="text-[#1a1a2e] text-sm leading-relaxed">
+              Upload your menu and generate QR codes
+            </p>
+          </div>
+
+          {/* Step 3 - Start Taking Orders */}
+          <div className={`relative text-center z-10 ${isVisible ? 'animate-slide-up-delay-2' : 'opacity-0'}`}>
+            <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group relative">
+              <Package className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+              <div className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
+            </div>
+            <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Start Taking Orders</h3>
+            <p className="text-[#1a1a2e] text-sm leading-relaxed">
+              Customers scan and order instantly
+            </p>
+          </div>
+
+          {/* Step 4 - Scale & Optimize */}
+          <div className={`relative text-center z-10 ${isVisible ? 'animate-slide-up-delay-2' : 'opacity-0'}`}>
+            <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group relative">
+              <TrendingUp className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+              <div className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
+            </div>
+            <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Scale & Optimize</h3>
+            <p className="text-[#1a1a2e] text-sm leading-relaxed">
+              Monitor sales and optimize operations
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function DemoPage() {
   return (
@@ -159,7 +322,7 @@ export default function DemoPage() {
                     <span className="text-[#1a1a2e] text-base">High commission fees</span>
                   </li>
                 </ul>
-              </CardContent>
+            </CardContent>
             </Card>
 
             {/* After Card */}
@@ -189,90 +352,8 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Integration Steps - Enhanced with Animations and Better Scale Icon */}
-        <section className="py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#1a1a2e] mb-4">
-              How Easy Is MenuOS Integration?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Get started in four simple steps
-            </p>
-          </div>
-          
-          <div className="relative">
-            <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
-              {/* Animated S-Curve connector for desktop */}
-              <div className="hidden md:block absolute top-12 left-0 right-0 h-1 z-0">
-                <svg className="w-full h-full" viewBox="0 0 1000 10" preserveAspectRatio="none">
-                  <path 
-                    d="M 0 5 Q 250 2, 500 5 T 1000 5" 
-                    stroke="#e5e7eb" 
-                    strokeWidth="2" 
-                    fill="none"
-                    className="opacity-60"
-                  />
-                  {/* Animated progress line */}
-                  <path 
-                    d="M 0 5 Q 250 2, 500 5 T 1000 5" 
-                    stroke="#FF6B00" 
-                    strokeWidth="2" 
-                    fill="none"
-                    strokeDasharray="1000"
-                    strokeDashoffset="1000"
-                    className="animate-draw-line"
-                  />
-                </svg>
-              </div>
-              
-              {/* Step 1 - Enhanced with staggered animation */}
-              <div className="relative text-center z-10 animate-slide-up">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group">
-                  <UserPlus className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="white" />
-              </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Sign Up</h3>
-                <p className="text-[#1a1a2e] text-sm leading-relaxed">
-                  Create your account in minutes
-                </p>
-              </div>
-
-              {/* Step 2 - Enhanced with staggered animation */}
-              <div className="relative text-center z-10 animate-slide-up-delay">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group">
-                  <FileText className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Configure Menu</h3>
-                <p className="text-[#1a1a2e] text-sm leading-relaxed">
-                  Upload your menu and generate QR codes
-                </p>
-              </div>
-
-              {/* Step 3 - Enhanced with staggered animation */}
-              <div className="relative text-center z-10 animate-slide-up-delay-2">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group">
-                  <ShoppingCart className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" fill="white" />
-                </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Start Taking Orders</h3>
-                <p className="text-[#1a1a2e] text-sm leading-relaxed">
-                  Customers scan and order instantly
-                </p>
-              </div>
-
-              {/* Step 4 - Enhanced with better scale icon and animation */}
-              <div className="relative text-center z-10 animate-slide-up-delay-2">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B00] to-[#e55a00] rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110 hover:shadow-xl shadow-lg group relative">
-                  <ArrowUpRight className="w-10 h-10 text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" fill="white" strokeWidth={2.5} />
-                  {/* Pulse effect on hover */}
-                  <div className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
-                </div>
-                <h3 className="text-xl font-bold text-[#1a1a2e] mb-2">Scale & Optimize</h3>
-                <p className="text-[#1a1a2e] text-sm leading-relaxed">
-                  Monitor sales and optimize operations
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Integration Steps - Enhanced with Scroll Animation */}
+        <IntegrationStepsSection />
 
         {/* Stats Section - Enhanced with Navy Blue Background */}
         <section className="py-16">
