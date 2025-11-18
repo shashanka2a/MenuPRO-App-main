@@ -25,16 +25,10 @@ export default function DemoPage() {
               </span>
             </Link>
             <div className="flex items-center space-x-6">
-              <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-colors font-medium">
-                Home
-              </Link>
-              <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-colors font-medium">
-                Features
-              </Link>
-              <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-colors font-medium">
-                Pricing
-              </Link>
-              <Button className="bg-[#E67A50] hover:bg-[#d4693f] text-white font-semibold px-6" asChild>
+            <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-all duration-300 font-medium hover:scale-105">Home</Link>
+            <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-all duration-300 font-medium hover:scale-105">Features</Link>
+            <Link href="/" className="text-[#1a1a2e] hover:text-[#E67A50] transition-all duration-300 font-medium hover:scale-105">Pricing</Link>
+            <Button className="bg-[#E67A50] hover:bg-[#d4693f] text-white font-semibold px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
                 <Link href="/">Get Started</Link>
               </Button>
             </div>
@@ -45,7 +39,7 @@ export default function DemoPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Hero Section - See in Action */}
         <div className="mb-24">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1a1a2e] mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1a1a2e] mb-12 text-center animate-slide-up">
             See MenuOS in Action
           </h1>
           
@@ -66,7 +60,7 @@ export default function DemoPage() {
           {/* Full-width CTA Button */}
           <div className="px-4">
             <Button 
-              className="w-full bg-[#E67A50] hover:bg-[#d4693f] text-white text-lg font-semibold py-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+              className="w-full bg-[#E67A50] hover:bg-[#d4693f] text-white text-lg font-semibold py-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
               asChild
             >
               <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
@@ -81,7 +75,7 @@ export default function DemoPage() {
         <div className="mb-24">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Before Card - Manual Errors */}
-            <Card className="bg-[#f9f9f9] border-0 shadow-md">
+            <Card className="bg-[#f9f9f9] border-0 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6">Manual Errors</h2>
                 <ul className="space-y-4">
@@ -106,7 +100,7 @@ export default function DemoPage() {
             </Card>
 
             {/* After Card - MenuOS Automation */}
-            <Card className="bg-white border-t-4 border-[#E67A50] border-0 shadow-md">
+            <Card className="bg-white border-t-4 border-[#E67A50] border-0 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6">MenuOS Automation</h2>
                 <ul className="space-y-4">
@@ -140,9 +134,9 @@ export default function DemoPage() {
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-white border-0 shadow-md rounded-lg">
+            <Card className="bg-white border-0 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <Settings className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">Easy Installation</h3>
@@ -152,9 +146,9 @@ export default function DemoPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-md rounded-lg">
+            <Card className="bg-white border-0 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <Shield className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">No Commission Fees</h3>
@@ -164,9 +158,9 @@ export default function DemoPage() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white border-0 shadow-md rounded-lg">
+            <Card className="bg-white border-0 shadow-md rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <QrCode className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">QR Code Ordering</h3>
@@ -215,7 +209,7 @@ export default function DemoPage() {
               
               {/* Step 1 */}
               <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <UserPlus className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Sign Up</h3>
@@ -226,7 +220,7 @@ export default function DemoPage() {
 
               {/* Step 2 */}
               <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <FileText className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Configure Menu</h3>
@@ -237,7 +231,7 @@ export default function DemoPage() {
 
               {/* Step 3 */}
               <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <ShoppingCart className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Start Taking Orders</h3>
@@ -248,7 +242,7 @@ export default function DemoPage() {
 
               {/* Step 4 */}
               <div className="relative text-center z-10">
-                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-[#E67A50] rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 hover:scale-110 hover:rotate-3">
                   <BarChart3 className="w-8 h-8 text-white" fill="white" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1a1a2e] mb-3">Scale & Optimize</h3>
@@ -295,7 +289,7 @@ export default function DemoPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
-                  className="bg-[#E67A50] hover:bg-[#d4693f] text-white text-lg px-8 py-6 font-semibold"
+                  className="bg-[#E67A50] hover:bg-[#d4693f] text-white text-lg px-8 py-6 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   asChild
                 >
                   <Link href="/" className="flex items-center">
@@ -305,7 +299,7 @@ export default function DemoPage() {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-2 border-white bg-white text-[#1a1a2e] hover:bg-gray-100 text-lg px-8 py-6 font-semibold"
+                  className="border-2 border-white bg-white text-[#1a1a2e] hover:bg-gray-100 text-lg px-8 py-6 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   asChild
                 >
                   <Link href="https://calendly.com/5ha5hank/availability" target="_blank" rel="noopener noreferrer" className="flex items-center">

@@ -61,7 +61,7 @@ export function Testimonials() {
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <Card className="bg-white rounded-lg shadow-lg border-0 max-w-4xl mx-auto">
+                  <Card className="bg-white rounded-lg shadow-lg border-0 max-w-4xl mx-auto transition-all duration-300 hover:shadow-xl">
                     <CardContent className="p-12">
                       <p className="text-2xl md:text-3xl text-[#1a1a2e] mb-8 italic font-sans leading-relaxed">
                         &ldquo;{testimonial.content}&rdquo;
@@ -81,15 +81,15 @@ export function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow border border-gray-200"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:scale-110 hover:bg-[#FF6B00] hover:border-[#FF6B00] group"
           >
-            <ChevronLeft className="w-6 h-6 text-[#1a1a2e]" />
+            <ChevronLeft className="w-6 h-6 text-[#1a1a2e] group-hover:text-white transition-colors" />
           </button>
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow border border-gray-200"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:scale-110 hover:bg-[#FF6B00] hover:border-[#FF6B00] group"
           >
-            <ChevronRight className="w-6 h-6 text-[#1a1a2e]" />
+            <ChevronRight className="w-6 h-6 text-[#1a1a2e] group-hover:text-white transition-colors" />
           </button>
         </div>
       </div>

@@ -18,11 +18,11 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
 
   const formatPrice = (opts: { monthly?: number; annual?: number; suffix?: string }) => {
     if (billing === 'monthly' && opts.monthly !== undefined) {
-      return { value: `$${opts.monthly}`, period: 'per month' }
+      return { value: `$${opts.monthly}`, period: 'per month', originalValue: null }
     }
     const rawAnnual = opts.annual !== undefined ? opts.annual : (opts.monthly ? opts.monthly * 12 : 0)
     const annualValue = Math.round(rawAnnual * 0.8)
-    return { value: `$${annualValue}`, period: 'per year' }
+    return { value: `$${annualValue}`, period: 'per year', originalValue: `$${rawAnnual}` }
   }
 
   const plans = [
@@ -42,8 +42,8 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
       id: 'pro',
       name: 'Pro',
       price: billing === 'monthly'
-        ? { value: '$15', period: 'per location/month' }
-        : { value: '$180', period: 'per location/year' },
+        ? { value: '$15', period: 'per location/month', originalValue: null }
+        : { value: '$180', period: 'per location/year', originalValue: '$225' },
       features: [
         'Everything in Starter',
         'Centralized Dashboard',
@@ -97,7 +97,7 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className="bg-white rounded-lg shadow-lg border-0 overflow-hidden"
+              className="bg-white rounded-lg shadow-lg border-0 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               {/* Orange Header Bar */}
               <div className="bg-[#FF6B00] py-4 px-6">
@@ -108,6 +108,9 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
 
               <CardHeader className="text-center pb-4 pt-8">
                 <div className="mb-2">
+                  {plan.price.originalValue && (
+                    <span className="text-2xl font-bold text-gray-400 line-through mr-2 font-sans">{plan.price.originalValue}</span>
+                  )}
                   <span className="text-5xl font-extrabold text-[#1a1a2e] font-sans">{plan.price.value}</span>
                   <span className="text-gray-600 ml-2 font-sans">{plan.price.period}</span>
                 </div>
@@ -124,7 +127,7 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
                 </ul>
 
                 <Button 
-                  className="w-full bg-[#FF6B00] hover:bg-[#e55a00] text-white font-sans font-semibold py-6"
+                  className="w-full bg-[#FF6B00] hover:bg-[#e55a00] text-white font-sans font-semibold py-6 transition-all duration-300 hover:scale-105"
                 >
                   Get Started
                 </Button>

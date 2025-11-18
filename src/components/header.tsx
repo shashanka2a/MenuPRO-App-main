@@ -23,17 +23,16 @@ export function Header({ onLaunchApp }: HeaderProps) {
               height={40}
               className="w-10 h-10"
             />
-            <span className="text-2xl font-bold font-sans">
-              <span className="text-[#1a1a2e]">Menu</span>
-              <span className="text-[#FF6B00]">OS</span>
+            <span className="text-2xl font-bold font-sans text-[#1a1a2e] transition-transform duration-300 hover:scale-105">
+              MenuOS
             </span>
           </Link>
           
           {/* Links - Center */}
           <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-            <a href="#services" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-colors font-sans font-medium">Features</a>
-            <a href="#pricing" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-colors font-sans font-medium">Pricing</a>
-            <a href="#testimonials" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-colors font-sans font-medium">Testimonials</a>
+            <a href="#services" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">Features</a>
+            <a href="#pricing" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">Pricing</a>
+            <a href="#testimonials" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">Testimonials</a>
           </nav>
           
           {/* CTAs - Right */}
@@ -46,7 +45,7 @@ export function Header({ onLaunchApp }: HeaderProps) {
             </Button>
             <Button 
               onClick={onLaunchApp}
-              className="bg-[#FF6B00] hover:bg-[#e55a00] text-white font-sans font-semibold"
+              className="bg-[#FF6B00] hover:bg-[#e55a00] text-white font-sans font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               Get Started
             </Button>

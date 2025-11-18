@@ -16,9 +16,8 @@ export function Footer() {
                 height={40}
                 className="w-10 h-10"
               />
-              <span className="text-2xl font-bold font-sans">
-                <span className="text-white">Menu</span>
-                <span className="text-[#FF6B00]">OS</span>
+              <span className="text-2xl font-bold font-sans text-white">
+                MenuOS
               </span>
             </div>
             <p className="text-white/70 text-sm font-sans mb-4">
@@ -33,10 +32,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-white font-sans">Product</h4>
             <ul className="space-y-2">
-              <li><Link href="#services" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Features</Link></li>
-              <li><Link href="#pricing" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Pricing</Link></li>
-              <li><Link href="/demo" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Demo</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">API</Link></li>
+              <li><Link href="#services" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Features</Link></li>
+              <li><Link href="#pricing" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Pricing</Link></li>
+              <li><Link href="/demo" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Demo</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">API</Link></li>
             </ul>
           </div>
           
@@ -44,10 +43,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-white font-sans">Company</h4>
             <ul className="space-y-2">
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">About</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Blog</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Careers</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Contact</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">About</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Blog</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Careers</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Contact</Link></li>
             </ul>
           </div>
           
@@ -55,10 +54,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-white font-sans">Support</h4>
             <ul className="space-y-2">
-              <li><Link href="#faq" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Help Center</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Documentation</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Community</Link></li>
-              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-colors text-sm font-sans">Status</Link></li>
+              <li><Link href="#faq" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Help Center</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Documentation</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Community</Link></li>
+              <li><Link href="#" className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 text-sm font-sans hover:translate-x-1 inline-block">Status</Link></li>
             </ul>
             
             {/* Social Icons */}
@@ -67,7 +66,7 @@ export function Footer() {
                 href="https://linkedin.com/company/menuos-app" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-[#FF6B00] transition-colors"
+                className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 hover:scale-110"
                 aria-label="Follow us on LinkedIn"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +77,7 @@ export function Footer() {
                 href="https://x.com/menuos.app" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-[#FF6B00] transition-colors"
+                className="text-white/70 hover:text-[#FF6B00] transition-all duration-300 hover:scale-110"
                 aria-label="Follow us on X (Twitter)"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
