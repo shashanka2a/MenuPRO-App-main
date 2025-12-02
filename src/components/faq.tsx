@@ -66,11 +66,11 @@ export function FAQ({ onLaunchApp }: FAQProps) {
                     {faq.question}
                   </span>
                   <div className={`transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
-                    {openIndex === index ? (
+                  {openIndex === index ? (
                       <ChevronUp className="w-5 h-5 text-[#1a1a2e] flex-shrink-0" />
-                    ) : (
+                  ) : (
                       <ChevronDown className="w-5 h-5 text-[#1a1a2e] flex-shrink-0" />
-                    )}
+                  )}
                   </div>
                 </button>
                 {openIndex === index && (

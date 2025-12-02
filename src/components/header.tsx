@@ -16,23 +16,23 @@ export function Header({ onLaunchApp }: HeaderProps) {
         <div className="flex items-center justify-between">
           {/* Logo - Left */}
           <Link href="/" className="flex items-center space-x-3">
-            <Image
-              src="/menupro-logo.svg"
-              alt="MenuOS Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
+          <Image
+            src="/menupro-logo.svg"
+            alt="MenuOS Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10"
+          />
             <span className="text-2xl font-bold font-sans text-[#1a1a2e] transition-transform duration-300 hover:scale-105">
               MenuOS
             </span>
           </Link>
-          
+        
           {/* Links - Center */}
           <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
             <a href="#services" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">Features</a>
             <a href="#pricing" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">Pricing</a>
-            <a href="#testimonials" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">Testimonials</a>
+            <a href="#faq" className="text-[#1a1a2e] hover:text-[#FF6B00] transition-all duration-300 font-sans font-medium hover:scale-105">FAQs</a>
           </nav>
           
           {/* CTAs - Right */}

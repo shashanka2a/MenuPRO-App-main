@@ -91,7 +91,7 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
             >
               Annual <span className={`ml-1 text-xs font-semibold ${billing === 'annual' ? 'text-green-200' : 'text-green-600'}`}>(Save 20%)</span>
             </button>
-          </div>
+              </div>
         </div>
 
         {/* Two Pricing Cards Side-by-Side */}
@@ -106,7 +106,7 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
                 <h3 className="text-2xl font-bold text-white font-sans text-center">
                   {plan.name}
                 </h3>
-              </div>
+                    </div>
 
               <CardHeader className="text-center pb-4 pt-8">
                 <div className="mb-2">
@@ -133,8 +133,8 @@ export function MultiLocationPricing({ onGetQuote }: MultiLocationPricingProps) 
                 >
                   Get Started
                 </Button>
-              </CardContent>
-            </Card>
+            </CardContent>
+          </Card>
           ))}
         </div>
 

@@ -66,7 +66,7 @@ export function Testimonials() {
                       <p className="text-2xl md:text-3xl text-[#1a1a2e] mb-8 italic font-sans leading-relaxed">
                         &ldquo;{testimonial.content}&rdquo;
                       </p>
-                      <div className="text-left">
+                        <div className="text-left">
                         <p className="font-bold text-xl text-[#1a1a2e] font-sans">
                           - {testimonial.name}, Owner of {testimonial.restaurant}
                         </p>
